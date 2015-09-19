@@ -160,6 +160,7 @@ The serial ports should already be available for use by the user.
 **UNDER LINUX**
 ---------------
 
+-Ubuntu 14.04-
 On ubuntu and other distributions, the user running the program
 will not have access to serial ports unless the user is part of the
 "dialout" group.
@@ -175,13 +176,34 @@ groups
 
 dialout should be in the list.
 
+-Fedora 22-
 
 The following instructions worked under fedora 22 and should work
-for redhat & centos
+for redhat & centos(may have to add the epel repository first)
 
-sudo yum install epel-release (yum has been deprecated and replaced by dnf)
-sudo dnf install epel-release
+sudo yum install rxtx (yum has been deprecated and replaced by dnf)
+sudo dnf install rxtx
 
+sudo usermod -a -G dialout,lock aardvark (replace aardvark with the username)
+
+log out, log in. open a terminal and type
+
+groups
+
+the dialout and lock groups should be in the list.
+
+Under 64 bit Fedora create a sym link to the rxtx serial library.
+Note that the version number of the library can change so look for a file
+in the form of "librxtxSerial-VERSION.so"
+
+sudo ln -s /usr/lib64/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so
+
+
+Under 32 bit Fedora create a sym link to the rxtx serial library.
+Note that the version number of the library can change so look for a file
+in the form of "librxtxSerial-VERSION.so"
+
+sudo ln -s /usr/lib/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so
 
 -------------
 **UNDER OSX**

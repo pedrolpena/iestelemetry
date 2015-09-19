@@ -92,19 +92,49 @@ or "C:\Windows\System32"
 **INSTALLING RXTX UNDER LINUX**
 -------------------------------
 
+-Ubuntu 14.04-
+
 The distribution you are using should have this available via one of its repositories.
 under ubuntu 14.04 open a terminal and type
 
 sudo apt-get update
 sudo apt-get install librxtx-java
 
-This will install the rxtx library. things should be similar under other
-distributions. For RHEL 6/7 a specific repository has to be added and a link
-to the library has to be made in /lib
+
+-Fedora 22-
+
+The following instructions worked under fedora 22 and should work
+for redhat & centos(may have to add the epel repository first)
+
+sudo yum install rxtx (yum has been deprecated and replaced by dnf)
+sudo dnf install rxtx
+
+
+
+The serial library needs to be "/usr/lib" in order for the program
+to work. For whatever reason, fedora places the library in "/usr/lib64/rxtx" or "/usr/lib/rxtx"
+To fix this, create symlink "/usr/lib/librxtxSerial.so" that points to 
+the nstalled library.
+
+Under 64 bit Fedora create a sym link to the rxtx serial library.
+Note that the version number of the library can change so look for a file
+in the form of "librxtxSerial-VERSION.so"
+
+sudo ln -s /usr/lib64/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so
+
+
+Under 32 bit Fedora create a sym link to the rxtx serial library.
+Note that the version number of the library can change so look for a file
+in the form of "librxtxSerial-VERSION.so"
+
+sudo ln -s /usr/lib/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so
+
+
 
 -----------------------------
 **INSTALLING RXTX UNDER OSX**
 -----------------------------
+
 copy the "librxtxSerial.jnilib" file to 
 "/Library/Java/Extensions" directory
 Note, you may have to hunt around for a version of this library
@@ -178,12 +208,6 @@ dialout should be in the list.
 
 -Fedora 22-
 
-The following instructions worked under fedora 22 and should work
-for redhat & centos(may have to add the epel repository first)
-
-sudo yum install rxtx (yum has been deprecated and replaced by dnf)
-sudo dnf install rxtx
-
 sudo usermod -a -G dialout,lock aardvark (replace aardvark with the username)
 
 log out, log in. open a terminal and type
@@ -192,18 +216,7 @@ groups
 
 the dialout and lock groups should be in the list.
 
-Under 64 bit Fedora create a sym link to the rxtx serial library.
-Note that the version number of the library can change so look for a file
-in the form of "librxtxSerial-VERSION.so"
 
-sudo ln -s /usr/lib64/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so
-
-
-Under 32 bit Fedora create a sym link to the rxtx serial library.
-Note that the version number of the library can change so look for a file
-in the form of "librxtxSerial-VERSION.so"
-
-sudo ln -s /usr/lib/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so
 
 -------------
 **UNDER OSX**

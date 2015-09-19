@@ -19,7 +19,7 @@
 *************************************************************************
 
 
-The step to get this program running are
+The steps to get this program running are
 
 -Compile the program
 -Install the rxtx serial library

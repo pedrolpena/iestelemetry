@@ -47,6 +47,7 @@ want to use OpenJDK.
 
 When you list the contents of the directory, you should see the following.
 
+documents             - directory containing place holders for equipment manuals and a help file
 lib                   - directory containing libraries  
 librxtxSerial.jnilib  - java serial library for OSX (here for convenience but may not work)
 LICENSE               - GNU GENERAL PUBLIC LICENSE version 3
@@ -174,18 +175,34 @@ groups
 
 dialout should be in the list.
 
+
+The following instructions worked under fedora 22 and should work
+for redhat & centos
+
+sudo yum install epel-release (yum has been deprecated and replaced by dnf)
+sudo dnf install epel-release
+
+
 -------------
 **UNDER OSX**
 -------------
 
 Access to the serial port is a little more complicated under OSX as it changes across
-several different versions.
+several different versions. The user needs to be part of the uucp group
 
 These instructions worked under OSX Leopard 10.5
 
 sudo mkdir /var/lock 
 sudo chmod 775 /var/lock
 sudo dscl . -append /groups/_uucp GroupMembership aardvark (replace aardvark with the username)
+
+
+These instructions worked under a later version of OSX
+sudo mkdir /var/lock 
+sudo chmod 777 /var/lock
+sudo dseditgroup -o edit -a aardvark (replace aardvark with the username) -t user uucp
+
+Reboot the computer
 
 rxtx uses the /var/lock directory to create lock files for a serial port when in use.
 This prevents other programs from trying to use the serial port when in use.

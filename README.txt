@@ -1,22 +1,22 @@
-*************************************************************************
-*                                                                       *
-* IESTelemetry, a URI CPIES/PIES/IES telemetry program.                 *
-* Copyright (C) 2015  Pedro Pena                                        *
-*                                                                       *
-* This program is free software: you can redistribute it and/or modify  *
-* it under the terms of the GNU General Public License as published by  *
-* the Free Software Foundation, either version 3 of the License, or     *
-* any later version.                                                    *
-*                                                                       * 
-* This program is distributed in the hope that it will be useful,       *
-* but WITHOUT ANY WARRANTY; without even the implied warranty of        *
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
-* GNU General Public License for more details.                          *
-*                                                                       *
-* You should have received a copy of the GNU General Public License     *
-* along with this program.  If not, see <http://www.gnu.org/licenses/>. *
-*                                                                       *                                         
-*************************************************************************
+************************************************************************
+*                                                                      *
+* IESTelemetry, a URI CPIES/PIES/IES telemetry program.                *
+* Copyright (C) 2015  Pedro Pena                                       *
+*                                                                      *
+* This program is free software: you can redistribute it and/or modify *
+* it under the terms of the GNU General Public License as published by *
+* the Free Software Foundation, either version 3 of the License, or    *
+* any later version.                                                   *
+*                                                                      * 
+* This program is distributed in the hope that it will be useful,      *
+* but WITHOUT ANY WARRANTY; without even the implied warranty of       *
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the        *
+* GNU General Public License for more details.                         *
+*                                                                      *
+* You should have received a copy of the GNU General Public License    *
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.*
+*                                                                      *                                         
+************************************************************************
 
 
 The steps to get this program running are
@@ -275,6 +275,11 @@ You can create a directory like "dist" and copy IESTelemetry.jar and the lib fol
 ------------------------------------
 **Modifying the code with Netbeans**
 ------------------------------------
+You may encounter an error when first opening the project.
+The IDE complains about not having swing application framework support 
+and will ask if you want to download and install it. You must
+install this to be able to edit the program. This is different than
+the Swing Aplication Framework form editor which is discussed below.
 
 This program was originally written using the Swing Aplication Framework(SAF) under Netbeans 7.01
 Netbeans has since removed support for the SAF and you will not be able to modify the forms
@@ -297,6 +302,7 @@ Once installed restart the IDE
 
 
 This plugin works with the Netbeans 8.2
+
 
 
 

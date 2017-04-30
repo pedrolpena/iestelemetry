@@ -266,9 +266,9 @@ and will ask if you want to download and install it. You must
 install this to be able to edit the program. This is different than
 the Swing Aplication Framework form editor which is discussed below.
 
-This program was originally written using the Swing Aplication Framework(SAF) under Netbeans 7.01
+This program was originally written using the Swing Aplication Framework(SAF) under Netbeans 7.01.<br>
 Netbeans has since removed support for the SAF and you will not be able to modify the forms
-with any stock version of Netbeans after version 7.01
+with any stock version of Netbeans after version 7.01.<br>
 To enable SAF modifications, you must install the "Swing Application Framework Support for Form Editor" plugin.
 The file is included in this repo in the event it can't be downloaded anymore.<br>
 The filename is "1341985500_org-netbeans-modules-swingapp.nbm"<br>

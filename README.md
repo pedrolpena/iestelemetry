@@ -1,16 +1,16 @@
 # iestelemetry
-*A program to download data from URI CPIES/PIES/IES
+# A program to download data from URI CPIES/PIES/IES
 
 
 
 
 The steps to get this program running are
 
--Compile the program
--Install the rxtx serial library
--Install a serial port
--Give the user permission to access the serial port
--Run the program
+-Compile the program<br>
+-Install the rxtx serial library<br>
+-Install a serial port<br>
+-Give the user permission to access the serial port<br>
+-Run the program<br>
 
 *Instructions to visually edit the forms with Netbeans are included
  at the end
@@ -33,26 +33,26 @@ for your operating system.
 Oracle has binaries for all of the major platforms, however, linux users may
 want to use OpenJDK.
 
-When you list the contents of the directory, you should see the following.
+When you list the contents of the directory, you should see the following.<br>
 
-documents             - directory containing place holders for equipment manuals and a help file
-lib                   - directory containing libraries  
-librxtxSerial.jnilib  - java serial library for OSX (here for convenience but may not work)
-LICENSE               - GNU GENERAL PUBLIC LICENSE version 3
-makeit.bat            - batch script to compile and archive the program 
-makeit.sh             - bash  script to compile and archive the program 
-manifest.txt          - info that will be added to the manifest in the resulting jar file
-README.md             - description of the program
-README.txt            - this document
-rxtxSerial.dll        - java serial library for 32/64 bit Microsoft Windows (here for convenience but may not work)
-src                   - directory with source files.
+documents             - directory containing place holders for equipment manuals and a help file<br>
+lib                   - directory containing libraries<br>
+librxtxSerial.jnilib  - java serial library for OSX (here for convenience but may not work)<br>
+LICENSE               - GNU GENERAL PUBLIC LICENSE version 3<br>
+makeit.bat            - batch script to compile and archive the program<br>
+makeit.sh             - bash  script to compile and archive the program<br> 
+manifest.txt          - info that will be added to the manifest in the resulting jar file<br>
+README.md             - description of the program<br>
+README.txt            - this document<br>
+rxtxSerial.dll        - java serial library for 32/64 bit Microsoft Windows (here for convenience but may not work)<br>
+src                   - directory with source files.<br>
 
 
 In Windows run makeit.bat in linux/unix run makeit.sh .
 In linux/unix you will have to make makeit.sh executable.
 To make it executable type
 
-"chmod +x makeit.sh"
+"chmod +x makeit.sh"<br>
 
 When done compiling, the ftp program will be placed in the dist directory.
 
@@ -83,19 +83,19 @@ or "C:\Windows\System32"
 -Ubuntu 14.04-
 
 The distribution you are using should have this available via one of its repositories.
-under ubuntu 14.04 open a terminal and type
+under ubuntu 14.04 open a terminal and type<br>
 
-sudo apt-get update
-sudo apt-get install librxtx-java
+sudo apt-get update<br>
+sudo apt-get install librxtx-java<br>
 
 
--Fedora 22-
+-Fedora 22-<br>
 
 The following instructions worked under fedora 22 and should work
-for redhat & centos(may have to add the epel repository first)
+for redhat & centos(may have to add the epel repository first)<br>
 
-sudo yum install rxtx (yum has been deprecated and replaced by dnf)
-sudo dnf install rxtx
+sudo yum install rxtx (yum has been deprecated and replaced by dnf)<br>
+sudo dnf install rxtx<br>
 
 
 
@@ -106,16 +106,16 @@ the nstalled library.
 
 Under 64 bit Fedora create a sym link to the rxtx serial library.
 Note that the version number of the library can change so look for a file
-in the form of "librxtxSerial-VERSION.so"
+in the form of "librxtxSerial-VERSION.so"<br>
 
-sudo ln -s /usr/lib64/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so
+sudo ln -s /usr/lib64/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so<br>
 
 
 Under 32 bit Fedora create a sym link to the rxtx serial library.
 Note that the version number of the library can change so look for a file
-in the form of "librxtxSerial-VERSION.so"
+in the form of "librxtxSerial-VERSION.so"<br>
 
-sudo ln -s /usr/lib/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so
+sudo ln -s /usr/lib/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so<br>
 
 
 
@@ -152,16 +152,16 @@ Under Windows and OSX, drivers must be installed.
 Once installed you can verify that the operating system has mounted the usb to serial converter.
 
 Under linux the device should be listed in the dev folder as something like this
-"/dev/ttyUSB0" 
+"/dev/ttyUSB0" <br>
 
 Under OSX the device should be listed in the dev folder as something like this
-"/dev/cu.usbserial"
-"/dev/tty.usbserial"
+"/dev/cu.usbserial"<br>
+"/dev/tty.usbserial"<br>
 
 Under Windows, the serial port should be listed in device manager under Ports(COM & LPT)
-as something like this
+as something like this<br>
 
-"Communications Port (COM1)"
+"Communications Port (COM1)"<br>
 
 
 
@@ -190,19 +190,19 @@ logout and log back in.
 
 To list groups the current user is part of, type
 
-groups
+groups<br>
 
-dialout should be in the list.
+dialout should be in the list.<br>
 
--Fedora 22-
+-Fedora 22-<br>
 
-sudo usermod -a -G dialout,lock aardvark (replace aardvark with the username)
+sudo usermod -a -G dialout,lock aardvark (replace aardvark with the username)<br>
 
-log out, log in. open a terminal and type
+log out, log in. open a terminal and type<br>
 
-groups
+groups<br>
 
-the dialout and lock groups should be in the list.
+the dialout and lock groups should be in the list.<br>
 
 
 
@@ -213,19 +213,19 @@ the dialout and lock groups should be in the list.
 Access to the serial port is a little more complicated under OSX as it changes across
 several different versions. The user needs to be part of the uucp group
 
-These instructions worked under OSX Leopard 10.5
+These instructions worked under OSX Leopard 10.5<br>
 
-sudo mkdir /var/lock 
-sudo chmod 775 /var/lock
-sudo dscl . -append /groups/_uucp GroupMembership aardvark (replace aardvark with the username)
+sudo mkdir /var/lock <br>
+sudo chmod 775 /var/lock<br>
+sudo dscl . -append /groups/_uucp GroupMembership aardvark (replace aardvark with the username)<br>
 
 
-These instructions worked under a later version of OSX
-sudo mkdir /var/lock 
-sudo chmod 777 /var/lock
-sudo dseditgroup -o edit -a aardvark (replace aardvark with the username) -t user uucp
+These instructions worked under a later version of OSX<br>
+sudo mkdir /var/lock <br>
+sudo chmod 777 /var/lock<br>
+sudo dseditgroup -o edit -a aardvark (replace aardvark with the username) -t user uucp<br>
 
-Reboot the computer
+Reboot the computer<br>
 
 rxtx uses the /var/lock directory to create lock files for a serial port when in use.
 This prevents other programs from trying to use the serial port when in use.
@@ -246,9 +246,9 @@ have to change the permissions of the created files to access them.
 **RUNNING THE PROGRAM**
 -----------------------
 
-To run the program enter the dist directory and type.
+To run the program enter the dist directory and type.<br>
 
-"java -jar IESTelemetry.jar"
+"java -jar IESTelemetry.jar"<br>
 
 If your Operating system assosciates the jar files with the java virtual machine,
 you may be able to just double click on "IESTelemetry.jar" to execute it.
@@ -270,23 +270,23 @@ This program was originally written using the Swing Aplication Framework(SAF) un
 Netbeans has since removed support for the SAF and you will not be able to modify the forms
 with any stock version of Netbeans after version 7.01
 To enable SAF modifications, you must install the "Swing Application Framework Support for Form Editor" plugin.
-The file is included in this repo in the event it can't be downloaded anymore.
-The filename is "1341985500_org-netbeans-modules-swingapp.nbm"
+The file is included in this repo in the event it can't be downloaded anymore.<br>
+The filename is "1341985500_org-netbeans-modules-swingapp.nbm"<br>
 
-The plugin can be downoaded from the following location.
+The plugin can be downoaded from the following location.<br>
 
-http://plugins.netbeans.org/plugin/43853/swing-application-framework-support
+http://plugins.netbeans.org/plugin/43853/swing-application-framework-support<br>
 
-To install the plugin
-Click on "Tools"-->"plugins"
-Click on "Downloaded" tab
-Click on "Add Plugins..." button
-Click on "Istall"
+To install the plugin<br>
+Click on "Tools"-->"plugins"<br>
+Click on "Downloaded" tab<br>
+Click on "Add Plugins..." button<br>
+Click on "Istall"<br>
 
-Once installed restart the IDE
+Once installed restart the IDE<br>
 
 
-This plugin works with the Netbeans 8.2
+This plugin works with the Netbeans 8.2<br>
 
 
 

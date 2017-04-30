@@ -27,6 +27,9 @@ The steps to get this program running are
 -Give the user permission to access the serial port
 -Run the program
 
+*Instructions to visually edit the forms with Netbeans are included
+ at the end
+
 -------------------------
 **COMPILING THE PROGRAM**
 -------------------------
@@ -269,6 +272,31 @@ you may be able to just double click on "IESTelemetry.jar" to execute it.
 Keep the IESTelemetry.jar file and the lib folder together.
 You can create a directory like "dist" and copy IESTelemetry.jar and the lib folder into it.
 
+------------------------------------
+**Modifying the code with Netbeans**
+------------------------------------
+
+This program was originally written using the Swing Aplication Framework(SAF) under Netbeans 7.01
+Netbeans has since removed support for the SAF and you will not be able to modify the forms
+with any stock version of Netbeans after version 7.01
+To enable SAF modifications, you must install the "Swing Application Framework Support for Form Editor" plugin.
+The file is included in this repo in the event it can't be downloaded anymore.
+The filename is "1341985500_org-netbeans-modules-swingapp.nbm"
+
+The plugin can be downoaded from the following location.
+
+http://plugins.netbeans.org/plugin/43853/swing-application-framework-support
+
+To install the plugin
+Click on "Tools"-->"plugins"
+Click on "Downloaded" tab
+Click on "Add Plugins..." button
+Click on "Istall"
+
+Once installed restart the IDE
+
+
+This plugin works with the Netbeans 8.2
 
 
 

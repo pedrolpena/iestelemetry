@@ -2,10 +2,15 @@
 # A program to download data from URI CPIES/PIES/IES
 
 ------------------------
-******SCREEN SHOTS******
+********Data Tab********
 ------------------------
 
 ![IES Telemetry App Data Tab](/images/iesTelemetryAppDataTab.png?raw=true "IES Telemetry App Data Tab")
+
+---------------------------------
+********Configuration Tab********
+---------------------------------
+
 ![IES Telemetry App Configuration Tab](/images/iesTelemetryAppConfigurationTab.png?raw=true "IES Telemetry App Configuration Tab")
 
 -------------------------

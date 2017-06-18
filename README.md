@@ -1,8 +1,15 @@
 # iestelemetry
 # A program to download data from URI CPIES/PIES/IES
 
+-------------------------
+*******SCREEN SHOTS******
+-------------------------
 
+![IES](/images/iesTelemetryAppDataTab.png?raw=true "Optional Title")
 
+-------------------------
+***RUNNING THE PROGRAM***
+-------------------------
 
 The steps to get this program running are
 

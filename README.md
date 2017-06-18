@@ -1,5 +1,6 @@
 # iestelemetry
-# A program to download data from URI CPIES/PIES/IES
+# A platform independent program to download data from URI CPIES/PIES/IES via acoustic telemetry.
+This program has been tested on Windows, Mac OSX and Linux.
 
 ------------------------
 ********Data Tab********

@@ -32,6 +32,10 @@ The steps to get this program running are
 -------------------------
 **COMPILING THE PROGRAM**
 -------------------------
+Compiling is easy if you have apache ant installed.
+Just navigate to the iestelemetry folder and type ant.
+The program should compile.
+If you don't have ant follow the steps below.
 
 To compile, make sure that a java sdk version of at least 1.6 is installed
 and that the jar archive tool is installed.

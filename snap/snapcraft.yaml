@@ -1,0 +1,32 @@
+name: iestelemetry
+version: '1.0'
+summary: ies
+description: ies
+
+grade: stable
+confinement: strict
+
+apps:
+  IESTelemetry:
+    plugs:
+      - x11
+      - desktop
+      - desktop-gtk3
+      - unity7
+      - home
+      - serial-port
+      - opengl
+    command: java -jar $SNAP/usr/bin/IESTelemetry.jar
+
+parts:
+  aoml-iestelemetry:
+    plugin: ant
+    source: .
+    stage-packages: [openjdk-8-jre , librxtx-java]
+    install: |
+      mkdir -p  ../../../prime/usr/bin
+      mkdir -p  ../../../prime/lib/x86_64-linux-gnu
+      cp ../install/usr/share/java/RXTXcomm-2.2pre2.jar ./dist/lib/RXTXcomm.jar
+      cp -r dist/* ../../../prime/usr/bin
+      cp ../install/usr/lib/jni/librxtxSerial-2.2pre1.so ../../../prime/lib/x86_64-linux-gnu/librxtxSerial.so
+

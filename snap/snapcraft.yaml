@@ -11,11 +11,11 @@ apps:
     plugs:
       - x11
       - desktop
-      - desktop-gtk3
       - unity7
       - home
       - serial-port
-      - opengl
+      - network
+      - wayland
     command: java -jar $SNAP/usr/bin/IESTelemetry.jar
 
 parts:
@@ -26,7 +26,10 @@ parts:
     install: |
       mkdir -p  ../../../prime/usr/bin
       mkdir -p  ../../../prime/lib/x86_64-linux-gnu
-      cp ../install/usr/share/java/RXTXcomm-2.2pre2.jar ./dist/lib/RXTXcomm.jar
+      mkdir -p  ../../../prime/var/lock
+      cp ../rxtxserial/RXTXcomm.jar ./dist/lib/RXTXcomm.jar
       cp -r dist/* ../../../prime/usr/bin
-      cp ../install/usr/lib/jni/librxtxSerial-2.2pre1.so ../../../prime/lib/x86_64-linux-gnu/librxtxSerial.so
+      cp ../../../rxtxserial/64bit/librxtxSerial-2.2pre1.so ../../../prime/lib/x86_64-linux-gnu/librxtxSerial.so
 
+
+  

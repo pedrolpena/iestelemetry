@@ -323,7 +323,7 @@ public class IESTelemetryView extends FrameView {
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -382,7 +382,7 @@ public class IESTelemetryView extends FrameView {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -496,7 +496,7 @@ public class IESTelemetryView extends FrameView {
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addComponent(markerJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(markerJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -860,8 +860,8 @@ public class IESTelemetryView extends FrameView {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Frequency3jComboBox, 0, 0, Short.MAX_VALUE)
-                            .addComponent(Frequency2jComboBox, 0, 0, Short.MAX_VALUE)
+                            .addComponent(Frequency3jComboBox, 0, 1, Short.MAX_VALUE)
+                            .addComponent(Frequency2jComboBox, 0, 1, Short.MAX_VALUE)
                             .addComponent(Frequency1jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -870,9 +870,9 @@ public class IESTelemetryView extends FrameView {
                             .addComponent(jLabel17))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Frequency6jComboBox, 0, 0, Short.MAX_VALUE)
+                            .addComponent(Frequency6jComboBox, 0, 1, Short.MAX_VALUE)
                             .addComponent(Frequency5jComboBox, 0, 0, Short.MAX_VALUE)
-                            .addComponent(Frequency4jComboBox, 0, 70, Short.MAX_VALUE))))
+                            .addComponent(Frequency4jComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
@@ -918,7 +918,7 @@ public class IESTelemetryView extends FrameView {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, resourceMap.getString("jPanel3.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, resourceMap.getFont("jPanel3.border.titleFont"))); // NOI18N
@@ -1042,7 +1042,7 @@ public class IESTelemetryView extends FrameView {
                             .addComponent(ReceiveThresholdjComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, 57, Short.MAX_VALUE)
                             .addComponent(receivePulseWidthjComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, 57, Short.MAX_VALUE)
                             .addComponent(setGainjComboBox, 0, 57, Short.MAX_VALUE)
-                            .addComponent(set130kSensitivityjComboBox, 0, 0, Short.MAX_VALUE)
+                            .addComponent(set130kSensitivityjComboBox, 0, 1, Short.MAX_VALUE)
                             .addComponent(set120kSensitivityjComboBox, 0, 57, Short.MAX_VALUE)
                             .addComponent(set115kSensitivityjComboBox, 0, 57, Short.MAX_VALUE)
                             .addComponent(set110kSensitivityjComboBox, 0, 57, Short.MAX_VALUE)
@@ -1076,7 +1076,7 @@ public class IESTelemetryView extends FrameView {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ReceiveThresholdjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(setGainJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE))
+                    .addComponent(setGainJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -1084,7 +1084,7 @@ public class IESTelemetryView extends FrameView {
                         .addGap(7, 7, 7))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(set100kSensitivityjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(set105kSensitivityjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(set105kSensitivityjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1099,11 +1099,11 @@ public class IESTelemetryView extends FrameView {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(set120kSensitivityjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(set120kSensitivityjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 19, Short.MAX_VALUE))
+                    .addComponent(set120kSensitivityjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(set125kSensitivityjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(set125kSensitivityjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 20, Short.MAX_VALUE))
+                    .addComponent(set125kSensitivityjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(set130kSensitivityjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1155,10 +1155,10 @@ public class IESTelemetryView extends FrameView {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(IESModeljComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 121, Short.MAX_VALUE)
-                    .addComponent(FirmwarejComboBox, 0, 121, Short.MAX_VALUE)
-                    .addComponent(SerialNumberjTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                    .addComponent(IESTypejComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 121, Short.MAX_VALUE))
+                    .addComponent(IESModeljComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(FirmwarejComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SerialNumberjTextField)
+                    .addComponent(IESTypejComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
@@ -1230,7 +1230,7 @@ public class IESTelemetryView extends FrameView {
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel17Layout.createSequentialGroup()
@@ -1356,7 +1356,7 @@ public class IESTelemetryView extends FrameView {
                 .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(statusMessageLabel)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statusPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 843, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 867, Short.MAX_VALUE)
                         .addComponent(statusAnimationLabel)
                         .addContainerGap())))
         );
@@ -1472,110 +1472,101 @@ public class IESTelemetryView extends FrameView {
         setStatusBar(statusPanel);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NotesjTextAreaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NotesjTextAreaKeyPressed
-        // TODO add your handling code here:
-        String notes = "",lastLine="",temp="";
-        String[] lines;
-       switch(evt.getKeyCode()){
-
-
-           case KeyEvent.VK_ENTER:
-               NotesjTextArea.append("\r");
-               notes = NotesjTextArea.getText();
-               lines = notes.split("\n");
-
-               if(lines.length > 0){
-                lastLine = lines[lines.length-1];
-              
-
-               logNotes(lastLine+"\n\r");
-               }// end if
-               break;
-
-           case KeyEvent.VK_D:
-               if(evt.isControlDown()){
-            NotesjTextArea.append(new Date().toGMTString()+" ");
-               }
-
-               break;
-           case KeyEvent.VK_1:
-               if(evt.isControlDown()){
-            temp =new Date().toGMTString()+" First data received.";
-            NotesjTextArea.append(temp);
-            //NotesjTextArea.append("\n\r");
-            //logNotes(temp+"\n\r");
-               }
-
-               break;
-               
-               
-           case KeyEvent.VK_2:
-               if(evt.isControlDown()){
-            temp = new Date().toGMTString()+" Two ping response heard.";
-            NotesjTextArea.append(temp);
-            //NotesjTextArea.append("\n\r");
-            //logNotes(temp+"\n\r");
-               }
-
-               break;
-           case KeyEvent.VK_T:
-               if(evt.isControlDown()){
-                   temp = new Date().toGMTString()+" Telemetry command sent.";
-            NotesjTextArea.append(temp);
-            //NotesjTextArea.append("\n\r");
-            //logNotes(temp+"\n\r");
-               }
-
-               break;
-
-
-           case KeyEvent.VK_DELETE:
-               if(evt.isControlDown()){
-            NotesjTextArea.setText("");
-            logNotes("");
-               }
-
-               break;
-
-
-
-                
-            
-       }// end switch
-       NotesjTextArea.setCaretPosition(NotesjTextArea.getDocument().getLength());
-    }//GEN-LAST:event_NotesjTextAreaKeyPressed
-
-    private void rawDataTabbedPaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rawDataTabbedPaneKeyPressed
-
-       switch(evt.getKeyCode()){
-           case KeyEvent.VK_G:
-               if(evt.isControlDown()){
-                   NotesjTextArea.setText("g has been pressed");
-                   logNotes("Guarded command sent");
-               }
-               break;
-       }// end switch
-
-    }//GEN-LAST:event_rawDataTabbedPaneKeyPressed
-
-    private void transmitCodejComboBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_transmitCodejComboBoxKeyPressed
-       switch(evt.getKeyCode()){
-           case KeyEvent.VK_G:
-               if(evt.isControlDown()){
-                   NotesjTextArea.setText("Sending guarded commands has not yet been implemented");
-
-               }
-               break;
-        }// end switch
-    }//GEN-LAST:event_transmitCodejComboBoxKeyPressed
-
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
-private void connectjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectjButtonActionPerformed
-// TODO add your handling code here:
-}//GEN-LAST:event_connectjButtonActionPerformed
+    private void rawDataTabbedPaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rawDataTabbedPaneKeyPressed
+
+        switch(evt.getKeyCode()){
+            case KeyEvent.VK_G:
+            if(evt.isControlDown()){
+                NotesjTextArea.setText("g has been pressed");
+                logNotes("Guarded command sent");
+            }
+            break;
+        }// end switch
+    }//GEN-LAST:event_rawDataTabbedPaneKeyPressed
+
+    private void connectjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectjButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_connectjButtonActionPerformed
+
+    private void transmitCodejComboBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_transmitCodejComboBoxKeyPressed
+        switch(evt.getKeyCode()){
+            case KeyEvent.VK_G:
+            if(evt.isControlDown()){
+                NotesjTextArea.setText("Sending guarded commands has not yet been implemented");
+
+            }
+            break;
+        }// end switch
+    }//GEN-LAST:event_transmitCodejComboBoxKeyPressed
+
+    private void NotesjTextAreaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NotesjTextAreaKeyPressed
+        // TODO add your handling code here:
+        String notes = "",lastLine="",temp="";
+        String[] lines;
+        switch(evt.getKeyCode()){
+
+            case KeyEvent.VK_ENTER:
+            NotesjTextArea.append("\r");
+            notes = NotesjTextArea.getText();
+            lines = notes.split("\n");
+
+            if(lines.length > 0){
+                lastLine = lines[lines.length-1];
+
+                logNotes(lastLine+"\n\r");
+            }// end if
+            break;
+
+            case KeyEvent.VK_D:
+            if(evt.isControlDown()){
+                NotesjTextArea.append(new Date().toGMTString()+" ");
+            }
+
+            break;
+            case KeyEvent.VK_1:
+            if(evt.isControlDown()){
+                temp =new Date().toGMTString()+" First data received.";
+                NotesjTextArea.append(temp);
+                //NotesjTextArea.append("\n\r");
+                //logNotes(temp+"\n\r");
+            }
+
+            break;
+
+            case KeyEvent.VK_2:
+            if(evt.isControlDown()){
+                temp = new Date().toGMTString()+" Two ping response heard.";
+                NotesjTextArea.append(temp);
+                //NotesjTextArea.append("\n\r");
+                //logNotes(temp+"\n\r");
+            }
+
+            break;
+            case KeyEvent.VK_T:
+            if(evt.isControlDown()){
+                temp = new Date().toGMTString()+" Telemetry command sent.";
+                NotesjTextArea.append(temp);
+                //NotesjTextArea.append("\n\r");
+                //logNotes(temp+"\n\r");
+            }
+
+            break;
+
+            case KeyEvent.VK_DELETE:
+            if(evt.isControlDown()){
+                NotesjTextArea.setText("");
+                logNotes("");
+            }
+
+            break;
+
+        }// end switch
+        NotesjTextArea.setCaretPosition(NotesjTextArea.getDocument().getLength());
+    }//GEN-LAST:event_NotesjTextAreaKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DatajPanelTab;
@@ -1780,12 +1771,12 @@ private void init(){
     
     try
     {
-        pWD = new File(System.getProperty("user.home") + File.separatorChar + "TelemetryFiles");
+        pWD = new File(System.getProperty("user.home") + File.separatorChar + "data"+File.separatorChar+ "TelemetryFiles");
         
         
         //if(pWD.isDirectory())
         //{
-            pWD.mkdir();
+            pWD.mkdirs();
         //}//end if
         this.fileLocationjTextField.setText(pWD.getAbsolutePath());
        

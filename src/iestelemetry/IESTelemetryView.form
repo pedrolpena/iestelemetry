@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7">
   <NonVisualComponents>
@@ -472,7 +472,7 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="markerJLabel" pref="20" max="32767" attributes="0"/>
+                                  <Component id="markerJLabel" pref="24" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -557,7 +557,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel11" pref="96" max="32767" attributes="0"/>
+                              <Component id="jPanel11" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -759,7 +759,7 @@
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -1002,7 +1002,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="41" max="32767" attributes="0"/>
+                                      <EmptySpace pref="65" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1041,7 +1041,7 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="Frequency6jComboBox" min="0" pref="0" max="32767" attributes="3"/>
                                                       <Component id="Frequency5jComboBox" alignment="0" min="0" pref="0" max="32767" attributes="3"/>
-                                                      <Component id="Frequency4jComboBox" alignment="0" pref="70" max="32767" attributes="3"/>
+                                                      <Component id="Frequency4jComboBox" alignment="0" max="32767" attributes="3"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -1404,7 +1404,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="ReceiveThresholdjComboBox" alignment="3" min="-2" pref="22" max="-2" attributes="1"/>
-                                          <Component id="setGainJButton" alignment="3" pref="22" max="32767" attributes="1"/>
+                                          <Component id="setGainJButton" alignment="3" pref="0" max="32767" attributes="1"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1414,7 +1414,7 @@
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Component id="set100kSensitivityjComboBox" min="-2" pref="20" max="-2" attributes="1"/>
-                                              <EmptySpace max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1434,12 +1434,12 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="set120kSensitivityjComboBox" alignment="3" min="-2" pref="20" max="-2" attributes="1"/>
-                                          <Component id="set120kSensitivityjButton" alignment="3" pref="19" max="32767" attributes="1"/>
+                                          <Component id="set120kSensitivityjButton" alignment="3" pref="0" max="32767" attributes="1"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="set125kSensitivityjComboBox" alignment="3" min="-2" pref="20" max="-2" attributes="1"/>
-                                          <Component id="set125kSensitivityjButton" alignment="3" pref="20" max="32767" attributes="1"/>
+                                          <Component id="set125kSensitivityjButton" alignment="3" pref="0" max="32767" attributes="1"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -1870,10 +1870,10 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="IESModeljComboBox" alignment="0" pref="121" max="32767" attributes="2"/>
-                                          <Component id="FirmwarejComboBox" alignment="1" pref="121" max="32767" attributes="2"/>
-                                          <Component id="SerialNumberjTextField" alignment="1" pref="121" max="32767" attributes="2"/>
-                                          <Component id="IESTypejComboBox" alignment="0" pref="121" max="32767" attributes="2"/>
+                                          <Component id="IESModeljComboBox" alignment="0" max="32767" attributes="2"/>
+                                          <Component id="FirmwarejComboBox" alignment="1" max="32767" attributes="2"/>
+                                          <Component id="SerialNumberjTextField" alignment="1" max="32767" attributes="2"/>
+                                          <Component id="IESTypejComboBox" alignment="0" max="32767" attributes="2"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">

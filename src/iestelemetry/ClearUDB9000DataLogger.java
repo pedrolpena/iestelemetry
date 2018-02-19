@@ -28,29 +28,29 @@ public class ClearUDB9000DataLogger extends Thread{
  * This method is invoked when the class is instantiated and it starts
  * the class
  */
-public void run(){
+    public void run() {
 
+        try {
 
-            try{
+            os = new PrintStream(port.getOutputStream());
+            os.print("+++");
+            os.print("\r");
+            Thread.sleep(1000);
+            os.print("echo on" + "\r");
 
+            Thread.sleep(1000);
+            os.print("atbc\r");
+            Thread.sleep(20000);
+            os.print("ats15=6\r");
 
-     os = new PrintStream(port.getOutputStream());
-     os.print("+++");
-     os.print("\r");
-     Thread.sleep(1000);
-     os.print("atbc\r");
-     Thread.sleep(20000);
-     os.print("ats15=6\r");
+            if (os != null) {
+                os.flush();
+                os.close();
+            }
 
-     if(os!=null){
-         os.flush();
-         os.close();
-     }
-
-}
-    catch(Exception e){
-    e.printStackTrace();
-    }// end catch
+        } catch (Exception e) {
+            e.printStackTrace();
+        }// end catch
 
       
 
@@ -98,4 +98,6 @@ public void setJComponents(JComponent j[]){
     }// end for}
 
 }
+ 
+ 
 }

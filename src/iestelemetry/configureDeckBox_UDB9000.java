@@ -3,6 +3,7 @@
  * and configures it. This class runs in the background as a thread.
  * 02/21/2013 changed continuous transponde command to ats15=6 so that 
  * box does not start in continous transponde mode
+ * 05/20/2017 added echo on for new deck box
  *  
  **/
 
@@ -34,7 +35,8 @@ if(port!=null){
 
     sendEscapeSequence();
     pause(delayTime);
-
+    echoOn();
+    pause(delayTime);
 
     for(double f = 7.00 ; f <= 16.00 ; f+=.25){
 
@@ -225,5 +227,25 @@ public void setListenTimeout(int to)
     }// end catch       
     
 }//end setListenTimeout
+
+
+public void echoOn(){
+    
+    try{
+     os = new PrintStream(port.getOutputStream());
+     os.print("echo on" + "\r");
+
+     if(os!=null){
+         os.flush();
+         os.close();
+     }
+
+}
+    catch(Exception e){
+    e.printStackTrace();
+    }// end catch     
+    
+}// end echo on
+
 
 }// end class

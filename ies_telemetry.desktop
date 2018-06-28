@@ -1,0 +1,9 @@
+[Desktop Entry]
+Comment=AOML IES Telemetry Application
+Terminal=false
+Name=AOML IES Telemetry Application
+Exec=/usr/local/AOML/ies_telemetry/iestelemetry
+Type=Application
+Icon=/usr/local/AOML/ies_telemetry/iesTelemIcon.png
+NoDisplay=false
+Categories=AOML

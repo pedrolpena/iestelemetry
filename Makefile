@@ -3,28 +3,48 @@ JRT = java
 JAR = jar
 JCFLAGS = -source 1.6 -target 1.6 -d ./
 JFLAGS = -jar
-RMDIR = rmdir
-CP = .:./lib/appframework-1.0.3.jar:./lib/RXTXcomm.jar:./lib/swing-worker-1.1.jar:./src/iestelemetry/resources
+SOURCE = src/iestelemetry
+PACKAGE = iestelemetry
+DEST = IESTelemetry.jar
+INSTALLDIR = /usr/local
+STARTDIR = /usr/local/sbin
+CP = .:./lib/appframework-1.0.3.jar:./lib/RXTXcomm.jar:./lib/swing-worker-1.1.jar
+
 
 all: build copyres archive dist
 
 build:
-	$(JC) $(JCFLAGS) -cp $(CP) src/iestelemetry/*.java
+	$(JC) $(JCFLAGS) -cp $(CP) $(JDP) $(SOURCE)/*.java
 
 copyres:
-	cp -R src/iestelemetry/resources iestelemetry
+	cp -R $(SOURCE)/resources $(PACKAGE)
 
 archive:
-	$(JAR) cfm IESTelemetry.jar manifest.txt iestelemetry/*.class 
-	$(JAR) vfu IESTelemetry.jar iestelemetry/resources
+	$(JAR) cfm $(DEST) manifest.txt $(PACKAGE)/*.class 
+	$(JAR) vfu  $(DEST) $(PACKAGE)/resources
 
 dist:
 	mkdir -p dist/lib
-	mv IESTelemetry.jar dist
+	mv  $(DEST) dist
 	cp ./lib/* ./dist/lib
 run:
-	$(JRT) $(JFLAGS) dist/IESTelemetry.jar
+	$(JRT) $(JFLAGS) dist/$(DEST)
 
+install:
+	mkdir -p $(INSTALLDIR)/$(PACKAGE)/lib
+	cp dist/$(DEST) $(INSTALLDIR)/$(PACKAGE)
+	cp dist/lib/* $(INSTALLDIR)/$(PACKAGE)/lib
+	echo "#!/bin/bash" > $(STARTDIR)/$(PACKAGE)
+	echo "java -jar $(INSTALLDIR)/$(PACKAGE)/$(DEST)" >> $(STARTDIR)/$(PACKAGE)
+	chmod +x $(STARTDIR)/$(PACKAGE)
+	
+uninstall:
+	$(RM) $(STARTDIR)/$(PACKAGE)
+	$(RM) $(INSTALLDIR)/$(PACKAGE)/lib/*
+	rmdir $(INSTALLDIR)/$(PACKAGE)/lib
+	$(RM) $(INSTALLDIR)/$(PACKAGE)/$(DEST)
+	rmdir $(INSTALLDIR)/$(PACKAGE)
+	
 clean:
-	$(RM) -r ./iestelemetry
+	$(RM) -r ./$(PACKAGE)
 	$(RM) -r ./dist

@@ -7,8 +7,9 @@ CP          = .:./lib/appframework-1.0.3.jar:./lib/RXTXcomm.jar:./lib/swing-work
 PACKAGE     = iestelemetry
 SOURCEDIR   = src/$(PACKAGE)
 FILENAME    = IESTelemetry.jar
-INSTALLDIR  = /usr/local
-STARTDIR    = /usr/local/sbin
+PREFIX      = /usr/lib
+STARTDIR    = /usr/bin
+ICONDIR     = /usr/share/doc/$(PACKAGE)
 DESKTOPDIR  = $(HOME)/.local/share/applications
 
 SOURCEFILES = $(SOURCEDIR)/ClearUDB9000DataLogger.java \
@@ -55,30 +56,32 @@ desktop:
 	echo "Name=IES Telemetry Application" >> $(PACKAGE).desktop
 	echo "Exec=$(STARTDIR)/$(PACKAGE)" >> $(PACKAGE).desktop
 	echo "Type=Application" >> $(PACKAGE).desktop
-	echo "Icon=$(INSTALLDIR)/$(PACKAGE)/icon.png" >> $(PACKAGE).desktop
+	echo "Icon=$(ICONDIR)/icon.png" >> $(PACKAGE).desktop
 	echo "NoDisplay=false" >> $(PACKAGE).desktop
 	echo "Categories=science" >> $(PACKAGE).desktop
 run:
 	$(JRT) $(JFLAGS) dist/$(FILENAME)
 
 install:
-	mkdir -p $(INSTALLDIR)/$(PACKAGE)/lib
-	cp dist/$(FILENAME) $(INSTALLDIR)/$(PACKAGE)
-	cp dist/lib/* $(INSTALLDIR)/$(PACKAGE)/lib
+	mkdir -p $(PREFIX)/$(PACKAGE)/lib
+	mkdir $(ICONDIR)
+	cp dist/$(FILENAME) $(PREFIX)/$(PACKAGE)
+	cp dist/lib/* $(PREFIX)/$(PACKAGE)/lib
 	echo "#!/bin/bash" > $(STARTDIR)/$(PACKAGE)
-	echo "java -jar $(INSTALLDIR)/$(PACKAGE)/$(FILENAME)" >> $(STARTDIR)/$(PACKAGE)
+	echo "java -jar $(PREFIX)/$(PACKAGE)/$(FILENAME)" >> $(STARTDIR)/$(PACKAGE)
 	chmod +x $(STARTDIR)/$(PACKAGE)
-	cp icon.png $(INSTALLDIR)/$(PACKAGE)
+	cp icon.png $(ICONDIR)
 	cp $(PACKAGE).desktop $(DESKTOPDIR)
 	chown $(SUDO_USER):$(SUDO_USER) $(DESKTOPDIR)/$(PACKAGE).desktop
 	
 uninstall:
 	$(RM) $(STARTDIR)/$(PACKAGE)
-	$(RM) $(INSTALLDIR)/$(PACKAGE)/lib/*
-	rmdir $(INSTALLDIR)/$(PACKAGE)/lib
-	$(RM) $(INSTALLDIR)/$(PACKAGE)/$(FILENAME)
-	$(RM) $(INSTALLDIR)/$(PACKAGE)/icon.png
-	rmdir $(INSTALLDIR)/$(PACKAGE)
+	$(RM) $(PREFIX)/$(PACKAGE)/lib/*
+	rmdir $(PREFIX)/$(PACKAGE)/lib
+	$(RM) $(PREFIX)/$(PACKAGE)/$(FILENAME)
+	$(RM) $(ICONDIR)/icon.png
+	rmdir $(ICONDIR)
+	rmdir $(PREFIX)/$(PACKAGE)
 	
 clean:
 	$(RM) -r ./$(PACKAGE)

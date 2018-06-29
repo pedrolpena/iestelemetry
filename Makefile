@@ -10,7 +10,7 @@ FILENAME    = IESTelemetry.jar
 PREFIX      = /usr/lib
 STARTDIR    = /usr/bin
 ICONDIR     = /usr/share/doc/$(PACKAGE)
-DESKTOPDIR  = $(HOME)/.local/share/applications
+DESKTOPDIR  = /usr/share/applications
 
 SOURCEFILES = $(SOURCEDIR)/ClearUDB9000DataLogger.java \
               $(SOURCEDIR)/configureDeckBox_DS7000.java \

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Comment=IES Telemetry Application
+Terminal=false
+Name=IES Telemetry Application
+Exec=/usr/bin/iestelemetry
+Type=Application
+Icon=/usr/share/doc/iestelemetry/icon.png
+NoDisplay=false
+Categories=science

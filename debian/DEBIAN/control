@@ -1,0 +1,10 @@
+Package: iestelemetry
+Version: 1.0
+Section: x11
+Build-Depends: default-jdk, librxtx-java (>= 2.2pre2-3)
+Priority: optional
+Architecture: all
+Depends: default-jre | java7-runtime , librxtx-java (>= 2.2pre2-3)
+Maintainer: Pedro Pena <pedro.pena@noaa.gov>
+Description: A platform independent program to download data 
+from URI CPIES/PIES/IES via acoustic telemetry.

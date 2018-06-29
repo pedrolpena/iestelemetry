@@ -1,6 +1,6 @@
 echo off
 
-javac -source 1.6 -target 1.6 -d .\ -cp .\lib\appframework-1.0.3.jar;.\lib\RXTXcomm.jar;.\lib\swing-worker-1.1.jar src\iestelemetry\*.java
+javac -source 1.6 -target 1.6 -d .\ -cp .\lib\bsaf.jar;.\lib\RXTXcomm.jar;.\lib\swing-worker-1.1.jar src\iestelemetry\*.java
 mkdir iestelemetry\resources
 xcopy src\iestelemetry\resources iestelemetry\resources /E/Y
 jar cfm IESTelemetry.jar manifest.txt iestelemetry\*.class 

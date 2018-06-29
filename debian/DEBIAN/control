@@ -1,6 +1,6 @@
 Package: iestelemetry
 Version: 1.0
-Section: science
+Section: x11
 Build-Depends: default-jdk, librxtx-java (>= 2.2pre2-3)
 Priority: optional
 Architecture: all

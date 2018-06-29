@@ -58,7 +58,7 @@ desktop:
 	echo "Type=Application" >> $(PACKAGE).desktop
 	echo "Icon=$(ICONDIR)/icon.png" >> $(PACKAGE).desktop
 	echo "NoDisplay=false" >> $(PACKAGE).desktop
-	echo "Categories=science" >> $(PACKAGE).desktop
+	echo "Categories=Application;Science;Education" >> $(PACKAGE).desktop
 run:
 	$(JRT) $(JFLAGS) dist/$(FILENAME)
 

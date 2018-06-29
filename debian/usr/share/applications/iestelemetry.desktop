@@ -6,4 +6,4 @@ Exec=/usr/bin/iestelemetry
 Type=Application
 Icon=/usr/share/doc/iestelemetry/icon.png
 NoDisplay=false
-Categories=science
+Categories=Science;Education

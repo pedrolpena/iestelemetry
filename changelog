@@ -1,0 +1,5 @@
+iestelemetry (1.0) xenial; urgency=medium
+
+  * Replaced Swing Application Framework (JSR 296) with BSAF.
+
+ -- Pedro Pena <pedro.pena@noaa.gov>  Sat, 30 Jun 2018 13:39:26 +0000

@@ -1,0 +1,3 @@
+#!/bin/bash
+make deb DESTDIR=debian/iestelemetry
+debuild -us -uc -I

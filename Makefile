@@ -3,14 +3,22 @@ JRT         = java
 JAR         = jar
 JCFLAGS     = -source 1.6 -target 1.6 -d ./
 JFLAGS      = -jar
-CP          = .:./lib/bsaf.jar:./lib/RXTXcomm.jar:./lib/swing-worker-1.1.jar
+CP          = .:/usr/share/java/bsaf.jar:/usr/share/java/RXTXcomm.jar
 PACKAGE     = iestelemetry
+MAIN        = IESTelemetryApp
 SOURCEDIR   = src/$(PACKAGE)
 FILENAME    = IESTelemetry.jar
-PREFIX      = /usr/lib
-STARTDIR    = /usr/bin
-ICONDIR     = /usr/share/doc/$(PACKAGE)
-DESKTOPDIR  = /usr/share/applications
+DESTDIR     =
+DESTDIRI    = $(DESTDIR)
+DESTDIR_B4  = $(DESTDIR)/..
+PREFIX      = $(DESTDIR)/usr/lib
+PREFIXI     = $(PREFIX)
+STARTDIR    = $(DESTDIR)/usr/bin
+STARTDIRI   = $(STARTDIR)
+ICONDIR     = $(DESTDIR)/usr/share/doc/$(PACKAGE)
+ICONDIRI    = $(ICONDIR)
+DESKTOPDIR  = $(DESTDIR)/usr/share/applications
+MANDIR      = $(DESTDIR)/usr/share/man/man7
 
 SOURCEFILES = $(SOURCEDIR)/ClearUDB9000DataLogger.java \
               $(SOURCEDIR)/configureDeckBox_DS7000.java \
@@ -45,43 +53,113 @@ archive:
 	$(JAR) vfu  $(FILENAME) $(PACKAGE)/resources
 
 dist:
-	mkdir -p dist/lib
-	mv  $(FILENAME) dist
-	cp ./lib/* ./dist/lib
-
+	mkdir dist
+	cp $(FILENAME) dist
+	rm $(FILENAME)
 desktop:
 	echo "[Desktop Entry]" > $(PACKAGE).desktop
 	echo "Comment=IES Telemetry Application" >> $(PACKAGE).desktop
 	echo "Terminal=false" >> $(PACKAGE).desktop
 	echo "Name=IES Telemetry Application" >> $(PACKAGE).desktop
-	echo "Exec=$(STARTDIR)/$(PACKAGE)" >> $(PACKAGE).desktop
+	echo "Exec=$(STARTDIRI)/$(PACKAGE)" >> $(PACKAGE).desktop
 	echo "Type=Application" >> $(PACKAGE).desktop
-	echo "Icon=$(ICONDIR)/icon.png" >> $(PACKAGE).desktop
+	echo "Icon=$(ICONDIRI)/icon.png" >> $(PACKAGE).desktop
 	echo "NoDisplay=false" >> $(PACKAGE).desktop
 	echo "Categories=Application;Science;Education" >> $(PACKAGE).desktop
 run:
-	$(JRT) $(JFLAGS) dist/$(FILENAME)
+	$(JRT) -cp $(CP):dist/$(FILENAME) $(PACKAGE).$(MAIN)
 
 install:
-	mkdir -p $(PREFIX)/$(PACKAGE)/lib
-	mkdir $(ICONDIR)
+	mkdir -p $(PREFIX)/$(PACKAGE)
+	mkdir -p $(ICONDIR)
+	mkdir -p $(STARTDIR)
+	mkdir -p $(DESKTOPDIR)
+	mkdir -p $(MANDIR)
+	
 	cp dist/$(FILENAME) $(PREFIX)/$(PACKAGE)
-	cp dist/lib/* $(PREFIX)/$(PACKAGE)/lib
+	chmod +x $(PREFIX)/$(PACKAGE)/$(FILENAME)
 	echo "#!/bin/bash" > $(STARTDIR)/$(PACKAGE)
-	echo "java -jar $(PREFIX)/$(PACKAGE)/$(FILENAME)" >> $(STARTDIR)/$(PACKAGE)
+	echo "java -cp $(CP):$(PREFIXI)/$(PACKAGE)/$(FILENAME) $(PACKAGE).$(MAIN)" >> $(STARTDIR)/$(PACKAGE)
 	chmod +x $(STARTDIR)/$(PACKAGE)
 	cp icon.png $(ICONDIR)
+	cp copyright $(ICONDIR)
 	cp $(PACKAGE).desktop $(DESKTOPDIR)
-	chown $(SUDO_USER):$(SUDO_USER) $(DESKTOPDIR)/$(PACKAGE).desktop
+	gzip -9 --no-name -c changelog > $(ICONDIR)/changelog.gz
+	gzip -9 --no-name -c $(PACKAGE).7 > $(MANDIR)/$(PACKAGE).7.gz
 	
 uninstall:
 	$(RM) $(STARTDIR)/$(PACKAGE)
-	$(RM) $(PREFIX)/$(PACKAGE)/lib/*
-	rmdir $(PREFIX)/$(PACKAGE)/lib
 	$(RM) $(PREFIX)/$(PACKAGE)/$(FILENAME)
 	$(RM) $(ICONDIR)/icon.png
+	$(RM) $(ICONDIR)/copyright
+	$(RM) $(ICONDIR)/changelog.gz
+	$(RM) $(MANDIR)/$(PACKAGE).7.gz
 	rmdir $(ICONDIR)
 	rmdir $(PREFIX)/$(PACKAGE)
+	
+deb:
+	mkdir -p $(DESTDIR)/usr/lib
+	mkdir -p $(DESTDIR)/usr/bin
+	mkdir -p $(DESTDIR)/usr/share/applications
+	mkdir -p $(DESTDIR)/DEBIAN
+	
+
+
+
+	echo "Package: $(PACKAGE)" > $(DESTDIR)/DEBIAN/control
+	echo "Version: 1.0" >> $(DESTDIR)/DEBIAN/control
+	echo "Architecture: all" >> $(DESTDIR)/DEBIAN/control
+	echo "Origin: ubuntu" >> $(DESTDIR)/DEBIAN/control
+	echo "Maintainer: Pedro Pena <pedro.pena@noaa.gov>" >> $(DESTDIR)/DEBIAN/control
+	echo "Installed-Size: 252" >> $(DESTDIR)/DEBIAN/control
+	echo "Depends: jarwrapper, default-jre | java7-runtime, librxtx-java (>= 2.2pre2-3), libbetter-appframework-java" >> $(DESTDIR)/DEBIAN/control
+	echo "Section: x11" >> $(DESTDIR)/DEBIAN/control
+	echo "Priority: optional" >> $(DESTDIR)/DEBIAN/control
+	echo "Homepage: https://github.com/pedrolpena/iestelemetry" >> $(DESTDIR)/DEBIAN/control
+	echo "Description: Telemeter data from URI IES's" >> $(DESTDIR)/DEBIAN/control
+	echo "	A platform independent program to download data from" >> $(DESTDIR)/DEBIAN/control
+	echo "	URI CPIES/PIES/IES via acoustic telemetry." >> $(DESTDIR)/DEBIAN/control
+	echo "Build-Depends: default-jdk, librxtx-java (>= 2.2pre2-3)," >> $(DESTDIR)/DEBIAN/control 
+	echo "	libbetter-appframework-java" >> $(DESTDIR)/DEBIAN/control
+
+	
+	echo "Source: $(PACKAGE)" > $(DESTDIR_B4)/control
+	echo "Section: x11" >> $(DESTDIR_B4)/control
+	echo "Priority: optional" >> $(DESTDIR_B4)/control
+	echo "Maintainer: Pedro Pena <pedro.pena@noaa.gov>" >> $(DESTDIR_B4)/control
+	echo "Standards-Version: 3.9.7" >> $(DESTDIR_B4)/control
+	echo "Build-Depends: gzip (>=1.5), debhelper (>=9), default-jre | java7-runtime , librxtx-java (>= 2.2pre2-3)," >> $(DESTDIR_B4)/control
+	echo "	libbetter-appframework-java" >> $(DESTDIR_B4)/control
+	echo "" >> $(DESTDIR_B4)/control
+	echo "Package: iestelemetry" >> $(DESTDIR_B4)/control
+	echo "Description: Telemeter data from URI IES's" >> $(DESTDIR_B4)/control
+	echo " A platform independent program to download data from" >> $(DESTDIR_B4)/control
+	echo " URI CPIES/PIES/IES via acoustic telemetry." >> $(DESTDIR_B4)/control
+	echo "Architecture: all" >> $(DESTDIR_B4)/control
+	echo "Homepage: https://github.com/pedrolpena/iestelemetry" >> $(DESTDIR_B4)/control
+	echo "Depends: \$${misc:Depends}, jarwrapper, default-jre | java7-runtime , librxtx-java (>= 2.2pre2-3)," >> $(DESTDIR_B4)/control
+	echo " libbetter-appframework-java" >> $(DESTDIR_B4)/control
+	
+	echo "#!/usr/bin/make -f"  > $(DESTDIR_B4)/rules
+	echo "%:" >> $(DESTDIR_B4)/rules
+	echo "	dh \$$@"  >> $(DESTDIR_B4)/rules
+	echo ""  >> $(DESTDIR_B4)/rules
+	echo "binary:"  >> $(DESTDIR_B4)/rules
+	echo "	make install DESTDIR=$(DESTDIR) DESTDIRI=/usr PREFIXI=/usr/lib STARTDIRI=/usr/bin"  >> $(DESTDIR_B4)/rules
+	echo "	dh_gencontrol"  >> $(DESTDIR_B4)/rules
+	echo "	dh_builddeb"  >> $(DESTDIR_B4)/rules
+	
+	chmod +x $(DESTDIR_B4)/rules
+	
+
+	echo "9" > $(DESTDIR_B4)/compat
+	
+	cp changelog $(DESTDIR_B4)/changelog
+	cp copyright $(DESTDIR_B4)/copyright
+	cp LICENSE $(DESTDIR_B4)/LICENSE
+	cp license.txt $(DESTDIR_B4)
+
+	
 	
 clean:
 	$(RM) -r ./$(PACKAGE)

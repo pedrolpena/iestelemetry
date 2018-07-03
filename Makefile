@@ -97,11 +97,13 @@ ifeq ($(MAKEDEB),1)
 	echo 'if ! [ -f "/lib/$$LIB"  ] && [ "$$LIBPATH"/"$$LIB" ]; then' >> $(DESTDIR)/DEBIAN/postinst
 	echo '    ln -s "$$LIBPATH"/"$$LIB" /lib/$$LIB'>> $(DESTDIR)/DEBIAN/postinst
 	echo "fi" >> $(DESTDIR)/DEBIAN/postinst
+	echo "usermod -a -G dialout \$$SUDO_USER" >> $(DESTDIR)/DEBIAN/postinst
 	chmod +x $(DESTDIR)/DEBIAN/postinst
 else
 
 	if [ -f "/usr/lib/jni/librxtxSerial.so" ] && [ ! -f "/lib/librxtxSerial.so" ];then \
 	ln -s /usr/lib/jni/librxtxSerial.so /lib/librxtxSerial.so;fi
+	usermod -a -G dialout $(SUDO_USER)
 	
 endif
 	

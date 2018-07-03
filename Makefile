@@ -19,6 +19,7 @@ ICONDIR     = $(DESTDIR)/usr/share/doc/$(PACKAGE)
 ICONDIRI    = $(ICONDIR)
 DESKTOPDIR  = $(DESTDIR)/usr/share/applications
 MANDIR      = $(DESTDIR)/usr/share/man/man7
+MAKEDEB     = 0
 
 SOURCEFILES = $(SOURCEDIR)/ClearUDB9000DataLogger.java \
               $(SOURCEDIR)/configureDeckBox_DS7000.java \
@@ -86,6 +87,23 @@ install:
 	cp $(PACKAGE).desktop $(DESKTOPDIR)
 	gzip -9 --no-name -c changelog > $(ICONDIR)/changelog.gz
 	gzip -9 --no-name -c $(PACKAGE).7 > $(MANDIR)/$(PACKAGE).7.gz
+
+ifeq ($(MAKEDEB),1)
+	mkdir -p $(DESTDIR)/DEBIAN
+	echo "#!/bin/bash" > $(DESTDIR)/DEBIAN/postinst
+	echo "set -e" >> $(DESTDIR)/DEBIAN/postinst
+	echo 'LIBPATH="/usr/lib/jni"' >> $(DESTDIR)/DEBIAN/postinst
+	echo 'LIB="librxtxSerial.so"' >> $(DESTDIR)/DEBIAN/postinst
+	echo 'if ! [ -f "/lib/$$LIB"  ] && [ "$$LIBPATH"/"$$LIB" ]; then' >> $(DESTDIR)/DEBIAN/postinst
+	echo '    ln -s "$$LIBPATH"/"$$LIB" /lib/$$LIB'>> $(DESTDIR)/DEBIAN/postinst
+	echo "fi" >> $(DESTDIR)/DEBIAN/postinst
+	chmod +x $(DESTDIR)/DEBIAN/postinst
+else
+
+	if [ -f "/usr/lib/jni/librxtxSerial.so" ] && [ ! -f "/lib/librxtxSerial.so" ];then \
+	ln -s /usr/lib/jni/librxtxSerial.so /lib/librxtxSerial.so;fi
+	
+endif
 	
 uninstall:
 	$(RM) $(STARTDIR)/$(PACKAGE)
@@ -103,24 +121,6 @@ deb:
 	mkdir -p $(DESTDIR)/usr/share/applications
 	mkdir -p $(DESTDIR)/DEBIAN
 	
-
-
-
-#	echo "Package: $(PACKAGE)" > $(DESTDIR)/DEBIAN/control
-#	echo "Version: 1.0" >> $(DESTDIR)/DEBIAN/control
-#	echo "Architecture: all" >> $(DESTDIR)/DEBIAN/control
-#	echo "Origin: ubuntu" >> $(DESTDIR)/DEBIAN/control
-#	echo "Maintainer: Pedro Pena <pedro.pena@noaa.gov>" >> $(DESTDIR)/DEBIAN/control
-#	echo "Installed-Size: 252" >> $(DESTDIR)/DEBIAN/control
-#	echo "Depends: jarwrapper, default-jre | java7-runtime, librxtx-java (>= 2.2pre2-3), libbetter-appframework-java" >> $(DESTDIR)/DEBIAN/control
-#	echo "Section: x11" >> $(DESTDIR)/DEBIAN/control
-#	echo "Homepage: https://github.com/pedrolpena/iestelemetry" >> $(DESTDIR)/DEBIAN/control
-#	echo "Description: Telemeter data from URI IES's" >> $(DESTDIR)/DEBIAN/control
-#	echo "	A platform independent program to download data from" >> $(DESTDIR)/DEBIAN/control
-#	echo "	URI CPIES/PIES/IES via acoustic telemetry." >> $(DESTDIR)/DEBIAN/control
-#	echo "Build-Depends: default-jdk, librxtx-java (>= 2.2pre2-3)," >> $(DESTDIR)/DEBIAN/control 
-#	echo "	libbetter-appframework-java" >> $(DESTDIR)/DEBIAN/control
-
 	
 	echo "Source: $(PACKAGE)" > $(DESTDIR_B4)/control
 	echo "Section: x11" >> $(DESTDIR_B4)/control
@@ -144,25 +144,19 @@ deb:
 	echo "	dh \$$@"  >> $(DESTDIR_B4)/rules
 	echo ""  >> $(DESTDIR_B4)/rules
 	echo "binary:"  >> $(DESTDIR_B4)/rules
-	echo "	make install DESTDIR=$(DESTDIR) DESTDIRI=/usr PREFIXI=/usr/lib STARTDIRI=/usr/bin"  >> $(DESTDIR_B4)/rules
+	echo "	make install DESTDIR=$(DESTDIR) DESTDIRI=/usr PREFIXI=/usr/lib STARTDIRI=/usr/bin MAKEDEB=1"  >> $(DESTDIR_B4)/rules
 	echo "	dh_gencontrol"  >> $(DESTDIR_B4)/rules
 	echo "	dh_builddeb"  >> $(DESTDIR_B4)/rules
 	chmod +x $(DESTDIR_B4)/rules
 	
 	echo "9" > $(DESTDIR_B4)/compat
-	echo "#!/bin/bash" > $(DESTDIR_B4)/postinst
-	echo 'LIBPATH="/usr/lib/jni"' >> $(DESTDIR_B4)/postinst
-	echo 'LIB="librxtxSerial.so"' >> $(DESTDIR_B4)/postinst
-	echo 'if ! [ -f "/lib/$$LIB"  ] && [ "$$LIBPATH"/"$$LIB" ]; then' >> $(DESTDIR_B4)/postinst
-	echo '    ln -s "$$LIBPATH"/"$$LIB" /lib/$$LIB'>> $(DESTDIR_B4)/postinst
-	echo "fi" >> $(DESTDIR_B4)/postinst
-	echo "#DEBHELPER#" >> $(DESTDIR_B4)/postinst
-	chmod 0755 $(DESTDIR_B4)/postinst
+
 	
 	cp changelog $(DESTDIR_B4)/changelog
 	cp copyright $(DESTDIR_B4)/copyright
 	cp LICENSE $(DESTDIR_B4)/LICENSE
 	cp license.txt $(DESTDIR_B4)
+	cp $(DESTDIR_B4)/postinst $(DESTDIR)/DEBIAN
 
 	
 	

@@ -106,21 +106,20 @@ deb:
 
 
 
-	echo "Package: $(PACKAGE)" > $(DESTDIR)/DEBIAN/control
-	echo "Version: 1.0" >> $(DESTDIR)/DEBIAN/control
-	echo "Architecture: all" >> $(DESTDIR)/DEBIAN/control
-	echo "Origin: ubuntu" >> $(DESTDIR)/DEBIAN/control
-	echo "Maintainer: Pedro Pena <pedro.pena@noaa.gov>" >> $(DESTDIR)/DEBIAN/control
-	echo "Installed-Size: 252" >> $(DESTDIR)/DEBIAN/control
-	echo "Depends: jarwrapper, default-jre | java7-runtime, librxtx-java (>= 2.2pre2-3), libbetter-appframework-java" >> $(DESTDIR)/DEBIAN/control
-	echo "Section: x11" >> $(DESTDIR)/DEBIAN/control
-	echo "Priority: optional" >> $(DESTDIR)/DEBIAN/control
-	echo "Homepage: https://github.com/pedrolpena/iestelemetry" >> $(DESTDIR)/DEBIAN/control
-	echo "Description: Telemeter data from URI IES's" >> $(DESTDIR)/DEBIAN/control
-	echo "	A platform independent program to download data from" >> $(DESTDIR)/DEBIAN/control
-	echo "	URI CPIES/PIES/IES via acoustic telemetry." >> $(DESTDIR)/DEBIAN/control
-	echo "Build-Depends: default-jdk, librxtx-java (>= 2.2pre2-3)," >> $(DESTDIR)/DEBIAN/control 
-	echo "	libbetter-appframework-java" >> $(DESTDIR)/DEBIAN/control
+#	echo "Package: $(PACKAGE)" > $(DESTDIR)/DEBIAN/control
+#	echo "Version: 1.0" >> $(DESTDIR)/DEBIAN/control
+#	echo "Architecture: all" >> $(DESTDIR)/DEBIAN/control
+#	echo "Origin: ubuntu" >> $(DESTDIR)/DEBIAN/control
+#	echo "Maintainer: Pedro Pena <pedro.pena@noaa.gov>" >> $(DESTDIR)/DEBIAN/control
+#	echo "Installed-Size: 252" >> $(DESTDIR)/DEBIAN/control
+#	echo "Depends: jarwrapper, default-jre | java7-runtime, librxtx-java (>= 2.2pre2-3), libbetter-appframework-java" >> $(DESTDIR)/DEBIAN/control
+#	echo "Section: x11" >> $(DESTDIR)/DEBIAN/control
+#	echo "Homepage: https://github.com/pedrolpena/iestelemetry" >> $(DESTDIR)/DEBIAN/control
+#	echo "Description: Telemeter data from URI IES's" >> $(DESTDIR)/DEBIAN/control
+#	echo "	A platform independent program to download data from" >> $(DESTDIR)/DEBIAN/control
+#	echo "	URI CPIES/PIES/IES via acoustic telemetry." >> $(DESTDIR)/DEBIAN/control
+#	echo "Build-Depends: default-jdk, librxtx-java (>= 2.2pre2-3)," >> $(DESTDIR)/DEBIAN/control 
+#	echo "	libbetter-appframework-java" >> $(DESTDIR)/DEBIAN/control
 
 	
 	echo "Source: $(PACKAGE)" > $(DESTDIR_B4)/control
@@ -148,11 +147,17 @@ deb:
 	echo "	make install DESTDIR=$(DESTDIR) DESTDIRI=/usr PREFIXI=/usr/lib STARTDIRI=/usr/bin"  >> $(DESTDIR_B4)/rules
 	echo "	dh_gencontrol"  >> $(DESTDIR_B4)/rules
 	echo "	dh_builddeb"  >> $(DESTDIR_B4)/rules
-	
 	chmod +x $(DESTDIR_B4)/rules
 	
-
 	echo "9" > $(DESTDIR_B4)/compat
+	echo "#!/bin/bash" > $(DESTDIR_B4)/postinst
+	echo 'LIBPATH="/usr/lib/jni"' >> $(DESTDIR_B4)/postinst
+	echo 'LIB="librxtxSerial.so"' >> $(DESTDIR_B4)/postinst
+	echo 'if ! [ -f "/lib/$$LIB"  ] && [ "$$LIBPATH"/"$$LIB" ]; then' >> $(DESTDIR_B4)/postinst
+	echo '    ln -s "$$LIBPATH"/"$$LIB" /lib/$$LIB'>> $(DESTDIR_B4)/postinst
+	echo "fi" >> $(DESTDIR_B4)/postinst
+	echo "#DEBHELPER#" >> $(DESTDIR_B4)/postinst
+	chmod 0755 $(DESTDIR_B4)/postinst
 	
 	cp changelog $(DESTDIR_B4)/changelog
 	cp copyright $(DESTDIR_B4)/copyright

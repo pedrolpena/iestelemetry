@@ -21,6 +21,21 @@ DESKTOPDIR  = $(DESTDIR)/usr/share/applications
 MANDIR      = $(DESTDIR)/usr/share/man/man7
 MAKEDEB     = 0
 
+TITLE       = "IES Telemetry Application"
+COMMENT     = "IES Telemetry Application"
+CATEGORIES  = "Application;Science;Education"
+
+MAINTAINER  = "Pedro Pena"
+EMAIL       = "pedro.pena@noaa.gov"
+
+STDVER      = "3.9.7"
+BUILDDEPENDS   = "gzip (>=1.5), debhelper (>=9), default-jre | java7-runtime , librxtx-java (>= 2.2pre2-3),libbetter-appframework-java"
+DESCRIPTION   = "Telemeter data from URI IES's\n A platform independent \
+program to download data from\n URI CPIES/PIES/IES via acoustic telemetry."
+ARCH        = "all"
+HOMEPAGE    = "https://github.com/pedrolpena/iestelemetry"
+DEPENDS = "\$${misc:Depends}, jarwrapper, default-jre | java7-runtime , librxtx-java (>= 2.2pre2-3), libbetter-appframework-java"
+
 SOURCEFILES = $(SOURCEDIR)/ClearUDB9000DataLogger.java \
               $(SOURCEDIR)/configureDeckBox_DS7000.java \
 	          $(SOURCEDIR)/configureDeckBox.java \
@@ -59,14 +74,14 @@ dist:
 	rm $(FILENAME)
 desktop:
 	echo "[Desktop Entry]" > $(PACKAGE).desktop
-	echo "Comment=IES Telemetry Application" >> $(PACKAGE).desktop
+	echo "Comment="$(COMMENT) >> $(PACKAGE).desktop
 	echo "Terminal=false" >> $(PACKAGE).desktop
-	echo "Name=IES Telemetry Application" >> $(PACKAGE).desktop
+	echo "Name="$(TITLE) >> $(PACKAGE).desktop
 	echo "Exec=$(STARTDIRI)/$(PACKAGE)" >> $(PACKAGE).desktop
 	echo "Type=Application" >> $(PACKAGE).desktop
 	echo "Icon=$(ICONDIRI)/icon.png" >> $(PACKAGE).desktop
 	echo "NoDisplay=false" >> $(PACKAGE).desktop
-	echo "Categories=Application;Science;Education" >> $(PACKAGE).desktop
+	echo "Categories="$(CATEGORIES) >> $(PACKAGE).desktop
 run:
 	$(JRT) -cp $(CP):dist/$(FILENAME) $(PACKAGE).$(MAIN)
 
@@ -92,12 +107,14 @@ ifeq ($(MAKEDEB),1)
 	mkdir -p $(DESTDIR)/DEBIAN
 	echo "#!/bin/bash" > $(DESTDIR)/DEBIAN/postinst
 	echo "set -e" >> $(DESTDIR)/DEBIAN/postinst
+	
 	echo 'LIBPATH="/usr/lib/jni"' >> $(DESTDIR)/DEBIAN/postinst
 	echo 'LIB="librxtxSerial.so"' >> $(DESTDIR)/DEBIAN/postinst
+	
 	echo 'if ! [ -f "/lib/$$LIB"  ] && [ "$$LIBPATH"/"$$LIB" ]; then' >> $(DESTDIR)/DEBIAN/postinst
 	echo '    ln -s "$$LIBPATH"/"$$LIB" /lib/$$LIB'>> $(DESTDIR)/DEBIAN/postinst
 	echo "fi" >> $(DESTDIR)/DEBIAN/postinst
-	echo "usermod -a -G dialout \$$SUDO_USER" >> $(DESTDIR)/DEBIAN/postinst
+
 	chmod +x $(DESTDIR)/DEBIAN/postinst
 else
 
@@ -127,19 +144,15 @@ deb:
 	echo "Source: $(PACKAGE)" > $(DESTDIR_B4)/control
 	echo "Section: x11" >> $(DESTDIR_B4)/control
 	echo "Priority: optional" >> $(DESTDIR_B4)/control
-	echo "Maintainer: Pedro Pena <pedro.pena@noaa.gov>" >> $(DESTDIR_B4)/control
-	echo "Standards-Version: 3.9.7" >> $(DESTDIR_B4)/control
-	echo "Build-Depends: gzip (>=1.5), debhelper (>=9), default-jre | java7-runtime , librxtx-java (>= 2.2pre2-3)," >> $(DESTDIR_B4)/control
-	echo "	libbetter-appframework-java" >> $(DESTDIR_B4)/control
+	echo "Maintainer: "$(MAINTAINER)" <"$(EMAIL)">" >> $(DESTDIR_B4)/control
+	echo "Standards-Version: "$(STDVER) >> $(DESTDIR_B4)/control
+	echo "Build-Depends: "$(BUILDDEPENDS) >> $(DESTDIR_B4)/control
 	echo "" >> $(DESTDIR_B4)/control
-	echo "Package: iestelemetry" >> $(DESTDIR_B4)/control
-	echo "Description: Telemeter data from URI IES's" >> $(DESTDIR_B4)/control
-	echo " A platform independent program to download data from" >> $(DESTDIR_B4)/control
-	echo " URI CPIES/PIES/IES via acoustic telemetry." >> $(DESTDIR_B4)/control
-	echo "Architecture: all" >> $(DESTDIR_B4)/control
-	echo "Homepage: https://github.com/pedrolpena/iestelemetry" >> $(DESTDIR_B4)/control
-	echo "Depends: \$${misc:Depends}, jarwrapper, default-jre | java7-runtime , librxtx-java (>= 2.2pre2-3)," >> $(DESTDIR_B4)/control
-	echo " libbetter-appframework-java" >> $(DESTDIR_B4)/control
+	echo "Package: "$(PACKAGE) >> $(DESTDIR_B4)/control
+	echo "Description: "$(DESCRIPTION) >> $(DESTDIR_B4)/control
+	echo "Architecture: "$(ARCH) >> $(DESTDIR_B4)/control
+	echo "Homepage: "$(HOMEPAGE) >> $(DESTDIR_B4)/control
+	echo "Depends: "$(DEPENDS) >> $(DESTDIR_B4)/control
 	
 	echo "#!/usr/bin/make -f"  > $(DESTDIR_B4)/rules
 	echo "%:" >> $(DESTDIR_B4)/rules

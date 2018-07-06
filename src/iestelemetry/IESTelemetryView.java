@@ -2773,7 +2773,9 @@ JLabel labelThatHoldsTimeLeft;
       File document = null;
 
       try{
-         document = new File(pwd + ps + "documents"+ ps + "CPIESUserManual.pdf");
+          
+         String x = new File(IESTelemetryView.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParent();
+         document = new File(x + ps+".."+ps + "share"+ ps + "doc" + ps + "iestelemetry" + ps + "CPIESUserManual.pdf");          
          new LaunchDesktopDocument(document);
   
       }// end try
@@ -2807,7 +2809,8 @@ JLabel labelThatHoldsTimeLeft;
       File document = null;
 
       try{
-         document = new File(pwd + ps + "documents"+ ps + "help.html");
+          String x = new File(IESTelemetryView.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParent();
+         document = new File(x + ps+".."+ps + "share"+ ps + "doc" + ps + "iestelemetry" + ps + "help.html");
          new LaunchDesktopDocument(document);
 
       }// end try
@@ -2815,6 +2818,7 @@ JLabel labelThatHoldsTimeLeft;
       catch(Exception e){
       //e.printStackTrace();
       if (e.getMessage().contains("doesn't exist")){
+          e.printStackTrace();
 
           try{
            pwd = new File("").getAbsoluteFile().getParentFile().getAbsolutePath();
@@ -2842,7 +2846,8 @@ JLabel labelThatHoldsTimeLeft;
       File document = null;
 
       try{
-         document = new File(pwd + ps + "documents"+ ps + "URI_PIES_Addendum.pdf");
+         String x = new File(IESTelemetryView.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParent();
+         document = new File(x + ps+".."+ps + "share"+ ps + "doc" + ps + "iestelemetry" + ps + "URI_PIES_Addendum.pdf");
          new LaunchDesktopDocument(document);
 
       }// end try
@@ -2874,7 +2879,8 @@ JLabel labelThatHoldsTimeLeft;
       File document = null;
 
       try{
-         document = new File(pwd + ps + "documents"+ ps + "ATM-900_Series_Acoustic_Telemetry_Modem_User's_Manual_Rev_A.pdf");
+         String x = new File(IESTelemetryView.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParent();
+         document = new File(x + ps+".."+ps + "share"+ ps + "doc" + ps + "iestelemetry" + ps + "ATM-900_Series_Acoustic_Telemetry_Modem_User's_Manual_Rev_A.pdf");
          new LaunchDesktopDocument(document);
 
       }// end try
@@ -2906,7 +2912,8 @@ JLabel labelThatHoldsTimeLeft;
       File document = null;
 
       try{
-         document = new File(pwd + ps + "documents"+ ps + "UDB-9000-M_and_MR_ Rev_C.pdf");
+         String x = new File(IESTelemetryView.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParent();
+         document = new File(x + ps+".."+ps + "share"+ ps + "doc" + ps + "iestelemetry" + ps + "UDB-9000-M_and_MR_ Rev_C.pdf");
          new LaunchDesktopDocument(document);
 
       }// end try
@@ -2941,7 +2948,8 @@ JLabel labelThatHoldsTimeLeft;
       File document = null;
 
       try{
-         document = new File(pwd + ps + "documents"+ ps + "DS7000MANUAL.PDF");
+         String x = new File(IESTelemetryView.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParent();
+         document = new File(x + ps+".."+ps + "share"+ ps + "doc" + ps + "iestelemetry" + ps + "DS7000MANUAL.PDF");
          new LaunchDesktopDocument(document);
 
       }// end try

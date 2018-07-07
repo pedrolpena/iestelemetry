@@ -76,6 +76,7 @@ copyres:
 	cp -R $(SOURCEDIR)/resources $(JPACKAGE)
 
 archive:
+	cp manifest_2.txt manifest.txt 
 	$(JAR) cfm $(FILENAME) manifest.txt $(JPACKAGE)/*.class 
 	$(JAR) vfu  $(FILENAME) $(JPACKAGE)/resources
 
@@ -177,6 +178,9 @@ deb:
 	echo "	dh_gencontrol"  >> $(DESTDIR_B4)/rules
 	echo "	dh_builddeb"  >> $(DESTDIR_B4)/rules
 	chmod +x $(DESTDIR_B4)/rules
+	
+	echo "3.0" > $(DESTDIR_B4)/format
+	
 	
 	echo "9" > $(DESTDIR_B4)/compat
 

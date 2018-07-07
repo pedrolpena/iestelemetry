@@ -1,6 +1,7 @@
 #!/bin/bash
 javac -source 1.6 -target 1.6 -d ./ -cp ./lib/bsaf.jar:./lib/RXTXcomm.jar:./lib/swing-worker-1.1.jar src/iestelemetry/*.java
 cp -R src/iestelemetry/resources iestelemetry
+cp manifest_1.txt manifest.txt
 jar cfm IESTelemetry.jar manifest.txt iestelemetry/*.class 
 jar vfu IESTelemetry.jar iestelemetry/resources
 if [ -d "dist" ]; then

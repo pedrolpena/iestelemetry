@@ -2769,33 +2769,23 @@ JLabel labelThatHoldsTimeLeft;
     @Action
     public void launchIESManual() {
       String ps = File.separator;
-      String pwd = new File("").getAbsolutePath();
       File document = null;
-
+      String x = getJarPath();
+      String docsPath = x + ps + ".."+ ps+".."+ps + "share"+ ps + "doc" + ps + "iestelemetry";
+      
+      
+      
       try{
-         document = new File(pwd + ps + "documents"+ ps + "CPIESUserManual.pdf");
+
+         document = new File(docsPath + ps + "CPIESUserManual.pdf");
          new LaunchDesktopDocument(document);
-  
+
       }// end try
 
       catch(Exception e){
-      //e.printStackTrace();
-      if (e.getMessage().contains("doesn't exist")){
+          e.printStackTrace();
 
-          try{
-           pwd = new File("").getAbsoluteFile().getParentFile().getAbsolutePath();
-          document = new File(pwd + ps + "documents"+ ps + "CPIESUserManual.pdf");
-         //System.out.println(pwd);
-           new LaunchDesktopDocument(document);
-          }
-          catch(Exception e1){
-          e1.printStackTrace();}
-
-
-
-      }// end if
       }// end catch
-
        
     } // end launchIESManual
 
@@ -2803,31 +2793,22 @@ JLabel labelThatHoldsTimeLeft;
     public void telemetryHelp() {
 
       String ps = File.separator;
-      String pwd = new File("").getAbsolutePath();
       File document = null;
-
+      String x = getJarPath();
+      String docsPath = x + ps + ".."+ ps+".."+ps + "share"+ ps + "doc" + ps + "iestelemetry";
+      
+      
+      
       try{
-         document = new File(pwd + ps + "documents"+ ps + "help.html");
+
+         document = new File(docsPath + ps + "help.html");
          new LaunchDesktopDocument(document);
 
       }// end try
 
       catch(Exception e){
-      //e.printStackTrace();
-      if (e.getMessage().contains("doesn't exist")){
+          e.printStackTrace();
 
-          try{
-           pwd = new File("").getAbsoluteFile().getParentFile().getAbsolutePath();
-          document = new File(pwd + ps + "documents"+ ps + "help.html");
-         //System.out.println(pwd);
-           new LaunchDesktopDocument(document);
-          }
-          catch(Exception e1){
-          e1.printStackTrace();}
-
-
-
-      }// end if
       }// end catch
 
 
@@ -2836,65 +2817,45 @@ JLabel labelThatHoldsTimeLeft;
 
     @Action
     public void launchATM90xAddendum() {
-
       String ps = File.separator;
-      String pwd = new File("").getAbsolutePath();
       File document = null;
-
+      String x = getJarPath();
+      String docsPath = x + ps + ".."+ ps+".."+ps + "share"+ ps + "doc" + ps + "iestelemetry";
+      
+      
+      
       try{
-         document = new File(pwd + ps + "documents"+ ps + "URI_PIES_Addendum.pdf");
+
+         document = new File(docsPath + ps + "URI_PIES_Addendum.pdf");
          new LaunchDesktopDocument(document);
 
       }// end try
 
       catch(Exception e){
-      //e.printStackTrace();
-      if (e.getMessage().contains("doesn't exist")){
+          e.printStackTrace();
 
-          try{
-           pwd = new File("").getAbsoluteFile().getParentFile().getAbsolutePath();
-          document = new File(pwd + ps + "documents"+ ps + "URI_PIES_Addendum.pdf");
-         //System.out.println(pwd);
-           new LaunchDesktopDocument(document);
-          }
-          catch(Exception e1){
-          e1.printStackTrace();}
-
-
-
-      }// end if
       }// end catch
     }
 
     @Action
     public void launchATM900SeriesManual() {
-
       String ps = File.separator;
-      String pwd = new File("").getAbsolutePath();
       File document = null;
-
+      String x = getJarPath();
+      String docsPath = x + ps + ".."+ ps+".."+ps + "share"+ ps + "doc" + ps + "iestelemetry";
+      
+      
+      
       try{
-         document = new File(pwd + ps + "documents"+ ps + "ATM-900_Series_Acoustic_Telemetry_Modem_User's_Manual_Rev_A.pdf");
+
+         document = new File(docsPath + ps + "ATM-900_Series_Acoustic_Telemetry_Modem_User's_Manual_Rev_A.pdf");
          new LaunchDesktopDocument(document);
 
       }// end try
 
       catch(Exception e){
-      //e.printStackTrace();
-      if (e.getMessage().contains("doesn't exist")){
+          e.printStackTrace();
 
-          try{
-           pwd = new File("").getAbsoluteFile().getParentFile().getAbsolutePath();
-          document = new File(pwd + ps + "documents"+ ps + "ATM-900_Series_Acoustic_Telemetry_Modem_User's_Manual_Rev_A.pdf");
-         //System.out.println(pwd);
-           new LaunchDesktopDocument(document);
-          }
-          catch(Exception e1){
-          e1.printStackTrace();}
-
-
-
-      }// end if
       }// end catch
     }
 
@@ -2902,31 +2863,22 @@ JLabel labelThatHoldsTimeLeft;
     public void launchUDBManual() {
 
       String ps = File.separator;
-      String pwd = new File("").getAbsolutePath();
       File document = null;
-
+      String x = getJarPath();
+      String docsPath = x + ps + ".."+ ps+".."+ps + "share"+ ps + "doc" + ps + "iestelemetry";
+      
+      
+      
       try{
-         document = new File(pwd + ps + "documents"+ ps + "UDB-9000-M_and_MR_ Rev_C.pdf");
+
+         document = new File(docsPath + ps + "UDB-9000-M_and_MR_ Rev_C.pdf");
          new LaunchDesktopDocument(document);
 
       }// end try
 
       catch(Exception e){
-      //e.printStackTrace();
-      if (e.getMessage().contains("doesn't exist")){
+          e.printStackTrace();
 
-          try{
-           pwd = new File("").getAbsoluteFile().getParentFile().getAbsolutePath();
-          document = new File(pwd + ps + "documents"+ ps + "UDB-9000-M_and_MR_ Rev_C.pdf");
-         //System.out.println(pwd);
-           new LaunchDesktopDocument(document);
-          }
-          catch(Exception e1){
-          e1.printStackTrace();}
-
-
-
-      }// end if
       }// end catch
 
 
@@ -2936,32 +2888,23 @@ JLabel labelThatHoldsTimeLeft;
     @Action
     public void launchDS7000Manual() {
 
-      String ps = File.separator;
-      String pwd = new File("").getAbsolutePath();
+           String ps = File.separator;
       File document = null;
-
+      String x = getJarPath();
+      String docsPath = x + ps + ".."+ ps+".."+ps + "share"+ ps + "doc" + ps + "iestelemetry";
+      
+      
+      
       try{
-         document = new File(pwd + ps + "documents"+ ps + "DS7000MANUAL.PDF");
+
+         document = new File(docsPath + ps + "DS7000MANUAL.PDF");
          new LaunchDesktopDocument(document);
 
       }// end try
 
       catch(Exception e){
-      //e.printStackTrace();
-      if (e.getMessage().contains("doesn't exist")){
+          e.printStackTrace();
 
-          try{
-           pwd = new File("").getAbsoluteFile().getParentFile().getAbsolutePath();
-          document = new File(pwd + ps + "documents"+ ps + "DS7000MANUAL.PDF");
-         //System.out.println(pwd);
-           new LaunchDesktopDocument(document);
-          }
-          catch(Exception e1){
-          e1.printStackTrace();}
-
-
-
-      }// end if
       }// end catch
     }
 
@@ -3109,6 +3052,28 @@ public class MockEventListener implements SerialPortEventListener{
         
         
     }
+    
+    private String getJarPath(){
+        
+      String ps = File.separator;
+      String cps = System.getProperty("path.separator");
+      String cp = System.getProperty("java.class.path");
+      String x = "";
+      String[] cpDirs = cp.split(cps);
+      
+      for(int i = 0; i< cpDirs.length ; i++)
+      {    
+          if(cpDirs[i].contains("IESTelemetry.jar")){
+              
+          x = cpDirs[i].replace(ps+"IESTelemetry.jar", "");
+          
+          }//end if
+      
+      }//end for)
+              
+    
+    return x;
+    }//end method
 
 }// end class
 

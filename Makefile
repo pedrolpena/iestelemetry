@@ -110,6 +110,7 @@ install:
 	chmod +x $(STARTDIR)/$(JPACKAGE)
 	cp icon.png $(ICONDIR)
 	cp copyright $(ICONDIR)
+	cp share/doc/$(JPACKAGE)/* $(ICONDIR)
 	cp $(JPACKAGE).desktop $(DESKTOPDIR)
 	gzip -9 --no-name -c changelog > $(ICONDIR)/changelog.gz
 	gzip -9 --no-name -c $(JPACKAGE).7 > $(MANDIR)/$(JPACKAGE).7.gz
@@ -138,10 +139,11 @@ endif
 uninstall:
 	$(RM) $(STARTDIR)/$(JPACKAGE)
 	$(RM) $(PREFIX)/$(JPACKAGE)/$(FILENAME)
-	$(RM) $(ICONDIR)/icon.png
-	$(RM) $(ICONDIR)/copyright
-	$(RM) $(ICONDIR)/changelog.gz
-	$(RM) $(MANDIR)/$(JPACKAGE).7.gz
+	$(RM) $(ICONDIR)/*
+#	$(RM) $(ICONDIR)/icon.png
+#	$(RM) $(ICONDIR)/copyright
+#	$(RM) $(ICONDIR)/changelog.gz
+#	$(RM) $(MANDIR)/$(JPACKAGE).7.gz
 	rmdir $(ICONDIR)
 	rmdir $(PREFIX)/$(JPACKAGE)
 	

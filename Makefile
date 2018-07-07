@@ -183,7 +183,7 @@ deb:
 	cp copyright $(DESTDIR_B4)/copyright
 	cp LICENSE $(DESTDIR_B4)/LICENSE
 	cp license.txt $(DESTDIR_B4)
-	cp $(DESTDIR_B4)/postinst $(DESTDIR)/DEBIAN
+	#cp $(DESTDIR_B4)/postinst $(DESTDIR)/DEBIAN
 
 	
 	

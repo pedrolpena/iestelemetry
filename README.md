@@ -58,10 +58,20 @@ If you don't have ant follow the steps below.
 To compile, make sure that a java sdk version of at least 1.6 is installed
 and that the jar archive tool is installed.
 
-You can check by opening a terminal or command window and typing "javac -version"
-you should see something like "javac 1.6.0_65"
+You can check by opening a terminal or command window and typing 
+```bash
+javac -version
+```
+you should see something like 
+```bash
+javac 1.6.0_65
+```
 
-Type "jar" and your screen should scroll with many jar options.
+Type 
+```bash
+jar
+```
+and your screen should scroll with many jar options.
 
 If the above fails, search for how to install the latest Java Development Kit or "JDK" 
 for your operating system.
@@ -87,9 +97,9 @@ src                   - directory with source files.<br>
 In Windows run makeit.bat in linux/unix run makeit.sh .
 In linux/unix you will have to make makeit.sh executable.
 To make it executable type
-
-"chmod +x makeit.sh"<br>
-
+```bash
+chmod +x makeit.sh
+```
 When done compiling, the ftp program will be placed in the dist directory.
 
 
@@ -120,19 +130,22 @@ or "C:\Windows\System32"
 
 The distribution you are using should have this available via one of its repositories.
 under ubuntu 14.04 open a terminal and type<br>
-
-sudo apt-get update<br>
-sudo apt-get install librxtx-java<br>
-
+```bash
+sudo apt-get update
+sudo apt-get install librxtx-java
+```
 
 -Fedora 22-<br>
 
 The following instructions worked under fedora 22 and should work
 for redhat & centos(may have to add the epel repository first)<br>
-
-sudo yum install rxtx (yum has been deprecated and replaced by dnf)<br>
-sudo dnf install rxtx<br>
-
+```bash
+sudo yum install rxtx 
+```
+(yum has been deprecated and replaced by dnf)<br>
+```bash
+sudo dnf install rxtx
+```
 
 
 The serial library needs to be "/usr/lib" in order for the program
@@ -144,15 +157,17 @@ Under 64 bit Fedora create a sym link to the rxtx serial library.
 Note that the version number of the library can change so look for a file
 in the form of "librxtxSerial-VERSION.so"<br>
 
-sudo ln -s /usr/lib64/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so<br>
-
+```bash
+sudo ln -s /usr/lib64/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so
+```
 
 Under 32 bit Fedora create a sym link to the rxtx serial library.
 Note that the version number of the library can change so look for a file
 in the form of "librxtxSerial-VERSION.so"<br>
 
+```bash
 sudo ln -s /usr/lib/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so<br>
-
+```
 
 
 -----------------------------
@@ -221,6 +236,12 @@ will not have access to serial ports unless the user is part of the
 
 For example, to add user aardvark to the dialout group, open a terminal and type
 sudo usermod -a -G dialout aardvark (replace aardvark with the username)
+or issue this command for the current user (easier)
+
+```bash
+sudo usermod -a -G dialout $USER
+```
+
 
 logout and log back in. 
 
@@ -250,16 +271,21 @@ Access to the serial port is a little more complicated under OSX as it changes a
 several different versions. The user needs to be part of the uucp group
 
 These instructions worked under OSX Leopard 10.5<br>
-
-sudo mkdir /var/lock <br>
-sudo chmod 775 /var/lock<br>
-sudo dscl . -append /groups/_uucp GroupMembership aardvark (replace aardvark with the username)<br>
+```bash
+sudo mkdir /var/lock 
+sudo chmod 775 /var/lock
+sudo dscl . -append /groups/_uucp GroupMembership aardvark
+```
+(replace aardvark with the username)
 
 
 These instructions worked under a later version of OSX<br>
-sudo mkdir /var/lock <br>
-sudo chmod 777 /var/lock<br>
-sudo dseditgroup -o edit -a aardvark (replace aardvark with the username) -t user uucp<br>
+```bash
+sudo mkdir /var/lock 
+sudo chmod 777 /var/lock
+sudo dseditgroup -o edit -a aardvark -t user uucp
+```
+(replace aardvark with the username
 
 Reboot the computer<br>
 
@@ -272,9 +298,9 @@ peruse "http://rxtx.qbang.org/wiki/index.php/Trouble_shooting#Mac_OS_X_users" fo
 
 If you can't figure it out, you can run the program as the super user by preceding the command
 by "sudo"
-
-"sudo java -jar IESTelemetry.jar"
-
+```bash
+sudo java -jar IESTelemetry.jar
+```
 This will work but all the files created by the program will belong to root and you will
 have to change the permissions of the created files to access them.
 
@@ -283,9 +309,9 @@ have to change the permissions of the created files to access them.
 -----------------------
 
 To run the program enter the dist directory and type.<br>
-
-"java -jar IESTelemetry.jar"<br>
-
+```bash
+java -jar IESTelemetry.jar
+```
 If your Operating system assosciates the jar files with the java virtual machine,
 you may be able to just double click on "IESTelemetry.jar" to execute it.
 

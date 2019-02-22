@@ -14,6 +14,12 @@ favoring by the Department of Commerce. The Department of Commerce seal and logo
 DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by
 DOC or the United States Government.
 
+
+Download executable and/or deb package
+--------------------------------------
+https://github.com/pedrolpena/iestelemetry/releases
+<br>
+
 ------------------------
 ********Data Tab********
 ------------------------

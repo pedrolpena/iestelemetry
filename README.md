@@ -166,7 +166,7 @@ Note that the version number of the library can change so look for a file
 in the form of "librxtxSerial-VERSION.so"<br>
 
 ```bash
-sudo ln -s /usr/lib/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so<br>
+sudo ln -s /usr/lib/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so
 ```
 
 

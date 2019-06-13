@@ -350,7 +350,18 @@ Once installed restart the IDE<br>
 
 This plugin works with the Netbeans 8.2<br>
 
+-----------------------------------------------------------------------------
+**java.lang.NullPointerException thrown while loading gnu.io.RXTXCommDriver**
+-----------------------------------------------------------------------------
 
+On newer versions of java sometimes an exception is thrown and no serial ports are listed.
+```
+java.lang.NullPointerException thrown while loading gnu.io.RXTXCommDriver
+```
 
+You can start the program with 
 
+```
+java -Djava.ext.dirs -jar IESTelemetry.jar
+```
 

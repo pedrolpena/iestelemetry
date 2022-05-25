@@ -31,13 +31,18 @@ public class SetRXThreshold extends Thread{
  */
 public void run(){
 
+    String rXThresholdCMD = "ats21*";
+    if( this.deckBox.equals("UTS") ){
+    rXThresholdCMD = "@RxThresh=";
+    }
+    
 
     try{
      os = new PrintStream(port.getOutputStream());
      os.print("+++");
      os.print("\r");
      Thread.sleep(500);
-     os.print("ats21*" + receiveThreshold + "\r");
+     os.print(rXThresholdCMD + receiveThreshold + "\r");
      Thread.sleep(500);
      os.print("ats15=6\r");
 

@@ -284,7 +284,7 @@ public void setNextMSBLabel(JLabel j){
                            deckBoxCounter = new Double(deckBoxNow).doubleValue(); 
                        }// end if
 
-                       if(deckBoxType.equals("UDB-9000") && line.length ==9)                        
+                       if((deckBoxType.equals("UDB-9000") || deckBoxType.equals("UTS") ) && line.length ==9)                        
                        {   
                            freqNow = line[0];
                            deckBoxNow = line[3];

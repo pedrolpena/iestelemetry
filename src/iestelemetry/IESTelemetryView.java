@@ -496,7 +496,7 @@ public class IESTelemetryView extends FrameView {
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addComponent(markerJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addComponent(markerJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -519,7 +519,7 @@ public class IESTelemetryView extends FrameView {
                     .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.LEADING, 0, 58, Short.MAX_VALUE)))
+                        .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -587,8 +587,8 @@ public class IESTelemetryView extends FrameView {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(resourceMap.getString("jPanel2.border.title"))); // NOI18N
         jPanel2.setName("jPanel2"); // NOI18N
 
-        DeckUnitjComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DS-7000", "UDB-9000", "SIM-7000" }));
-        DeckUnitjComboBox.setSelectedIndex(1);
+        DeckUnitjComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DS-7000", "UDB-9000", "SIM-7000", "UTS" }));
+        DeckUnitjComboBox.setSelectedItem("UTS");
         DeckUnitjComboBox.setAction(actionMap.get("setDeckBoxType")); // NOI18N
         DeckUnitjComboBox.setName("DeckUnitjComboBox"); // NOI18N
 
@@ -1039,16 +1039,16 @@ public class IESTelemetryView extends FrameView {
                     .addComponent(deckBoxConfigurejButton, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ReceiveThresholdjComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, 57, Short.MAX_VALUE)
-                            .addComponent(receivePulseWidthjComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, 57, Short.MAX_VALUE)
-                            .addComponent(setGainjComboBox, 0, 57, Short.MAX_VALUE)
+                            .addComponent(ReceiveThresholdjComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(receivePulseWidthjComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(setGainjComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(set130kSensitivityjComboBox, 0, 1, Short.MAX_VALUE)
-                            .addComponent(set120kSensitivityjComboBox, 0, 57, Short.MAX_VALUE)
-                            .addComponent(set115kSensitivityjComboBox, 0, 57, Short.MAX_VALUE)
-                            .addComponent(set110kSensitivityjComboBox, 0, 57, Short.MAX_VALUE)
-                            .addComponent(set105kSensitivityjComboBox, 0, 57, Short.MAX_VALUE)
-                            .addComponent(set125kSensitivityjComboBox, 0, 57, Short.MAX_VALUE)
-                            .addComponent(set100kSensitivityjComboBox, 0, 57, Short.MAX_VALUE))
+                            .addComponent(set120kSensitivityjComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(set115kSensitivityjComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(set110kSensitivityjComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(set105kSensitivityjComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(set125kSensitivityjComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(set100kSensitivityjComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(set130kSensitivityjButton, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
@@ -2224,7 +2224,7 @@ int getFlowControl(){
        
         
 
-        if(this.deckBoxInUse.equals("UDB-9000")){
+        if(deckBoxInUse.equals("UDB-9000") || deckBoxInUse.equals("UTS")){
             this.transmitCodejButton.setEnabled(!set);
             this.transmitCodejComboBox.setEnabled(!set);
             this.setGainJButton.setEnabled(!set);
@@ -2474,9 +2474,12 @@ int getFlowControl(){
             this.set130kSensitivityjButton.setEnabled(true); 
             
             this.clearDataLoggerjButton.setEnabled(true);            
-           */ 
+           */
         }// end if
         //System.out.println("set to "+deckBoxInUse);
+        if (deckBoxInUse.equals("UTS")) {
+            portSpeedjComboBox.setSelectedIndex(5);
+        }
     }
 
     @Action
@@ -2509,6 +2512,16 @@ int getFlowControl(){
                case 2:
                    deckBoxCnv = new configureDeckBox_UDB9000_DS7000_Mode();
                    break;
+               case 3:
+                   deckBoxCnv = new configureDeckBox_UTS();
+                   set100kSensitivityjComboBox.setSelectedIndex(10);
+                   set105kSensitivityjComboBox.setSelectedIndex(10);
+                   set110kSensitivityjComboBox.setSelectedIndex(10);
+                   set115kSensitivityjComboBox.setSelectedIndex(10);
+                   set120kSensitivityjComboBox.setSelectedIndex(10);
+                   set125kSensitivityjComboBox.setSelectedIndex(10);
+                   set130kSensitivityjComboBox.setSelectedIndex(10);
+                   break;                   
             }// end switch
 
                 
@@ -2920,6 +2933,7 @@ public class MockEventListener implements SerialPortEventListener{
     @Action
     public void setRXThreshold() {
         SetRXThreshold rxt = new SetRXThreshold();
+        rxt.setDeckBox(deckBoxInUse);
         rxt.setPort(port);
         rxt.setGlobalReceiveThreshold(new Integer(this.ReceiveThresholdjComboBox.getSelectedItem()+"").intValue());
         rxt.start();

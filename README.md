@@ -39,7 +39,6 @@ https://github.com/pedrolpena/iestelemetry/releases
 The steps to get this program running are
 
 -Compile the program<br>
--Install the rxtx serial library<br>
 -Install a serial port<br>
 -Give the user permission to access the serial port<br>
 -Run the program<br>
@@ -94,11 +93,14 @@ rxtxSerial.dll        - java serial library for 32/64 bit Microsoft Windows (her
 src                   - directory with source files.<br>
 
 
-In Windows run makeit.bat in linux/unix run makeit.sh .
-In linux/unix you will have to make makeit.sh executable.
-To make it executable type
+Under Windows
+```batch
+makeit.bat
+```
+Under linux/Mac OSX
 ```bash
 chmod +x makeit.sh
+./makeit.sh
 ```
 When done compiling, the ftp program will be placed in the dist directory.
 
@@ -110,80 +112,8 @@ RXTX is a Java library, using a native implementation (via JNI), providing
 serial and parallel communication for the Java Development Toolkit (JDK). 
 http://rxtx.qbang.org/
 Without this library, the program will not be able to communicate with
-the serial port.
+the serial port. RXTX is included in this propgram as a universal jar.
 
-
----------------------------------
-**INSTALLING RXTX UNDER WINDOWS**
----------------------------------
-
-Make sure that the "rxtxSerial.dll" file is in the classpath.
-This file can be placed where your version of java keeps its libraries
-or "C:\Windows\System32"
-
-
--------------------------------
-**INSTALLING RXTX UNDER LINUX**
--------------------------------
-
--Ubuntu 14.04-
-
-The distribution you are using should have this available via one of its repositories.
-under ubuntu 14.04 open a terminal and type<br>
-```bash
-sudo apt-get update
-sudo apt-get install librxtx-java
-```
-
--Fedora 22-<br>
-
-The following instructions worked under fedora 22 and should work
-for redhat & centos(may have to add the epel repository first)<br>
-```bash
-sudo yum install rxtx 
-```
-(yum has been deprecated and replaced by dnf)<br>
-```bash
-sudo dnf install rxtx
-```
-
-
-The serial library needs to be "/usr/lib" in order for the program
-to work. For whatever reason, fedora places the library in "/usr/lib64/rxtx" or "/usr/lib/rxtx"
-To fix this, create symlink "/usr/lib/librxtxSerial.so" that points to 
-the nstalled library.
-
-Under 64 bit Fedora create a sym link to the rxtx serial library.
-Note that the version number of the library can change so look for a file
-in the form of "librxtxSerial-VERSION.so"<br>
-
-```bash
-sudo ln -s /usr/lib64/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so
-```
-
-Under 32 bit Fedora create a sym link to the rxtx serial library.
-Note that the version number of the library can change so look for a file
-in the form of "librxtxSerial-VERSION.so"<br>
-
-```bash
-sudo ln -s /usr/lib/rxtx/librxtxSerial-2.2pre1.so /usr/lib/librxtxSerial.so
-```
-
-
------------------------------
-**INSTALLING RXTX UNDER OSX**
------------------------------
-
-copy the "librxtxSerial.jnilib" file to 
-"/Library/Java/Extensions" directory
-Note, you may have to hunt around for a version of this library
-compiiled for the version of OSX you are using.
-You could also compile rxtx from source.
-
-
-
-By this point the program should run even though you may not have a properly installed 
-serial port yet.
 
 ----------------------------
 **INSTALLING A SERIAL PORT**

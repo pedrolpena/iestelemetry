@@ -36,6 +36,7 @@ public class DeckBox extends Thread{
     JButton busyButton;
     int receiveThreshold = 10;
     JComponent jComponents[];
+    int tXPowerLevel = 8;
 
 /**
  * This method is invoked when the class is instantiated and it starts
@@ -179,15 +180,24 @@ public void setButton(JButton jb){
 
 /**
  * Sets the gain for the deck box
- * @param g - int holds a value between 0 and 10
- */
-public void setGain(int g){
-    gain = g;
+     *
+     * @param g - int holds a value between 0 and 10
+     */
+    public void setGain(int g) {
+        gain = g;
 
-}// end setGain()
+    }// end setGain()
 
+    public void setTXPowerLevel(int rt) {
 
-/**
+        tXPowerLevel = rt;
+    }// end 
+
+    public int getTXPowerLevel() {
+        return tXPowerLevel;
+    }
+
+    /**
  * Enable the repeat interval option on the deck box
  * @param rp  Boolean true for enable and false for disable
  */

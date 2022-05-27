@@ -64,7 +64,9 @@ if(port!=null){
     setTemperatureCompensatedOscillator(2);         // setting because URI says so
     pause(delayTime);
     setListenTimeout(30);   //sets listening timeout to 25  secs 
-    pause(delayTime);    
+    pause(delayTime);  
+    configureTXPowerLevel();
+    pause(delayTime); 
     startContinuousTranspondMode();
     pause(delayTime);
     }// end if
@@ -233,19 +235,31 @@ public void echoOn(){
     
     try{
      os = new PrintStream(port.getOutputStream());
-     os.print("echo on" + "\r");
+            os.print("echo on" + "\r");
 
-     if(os!=null){
-         os.flush();
-         os.close();
-     }
+            if (os != null) {
+                os.flush();
+                os.close();
+            }
 
-}
-    catch(Exception e){
-    e.printStackTrace();
-    }// end catch     
-    
-}// end echo on
+        } catch (Exception e) {
+            e.printStackTrace();
+        }// end catch     
 
+    }// end echo on
 
+    public void configureTXPowerLevel() {
+        try {
+            os = new PrintStream(port.getOutputStream());
+            os.print("ats6=" + this.getTXPowerLevel() + "\r");
+
+            if (os != null) {
+                os.flush();
+                os.close();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }// end catch  
+    }
 }// end class

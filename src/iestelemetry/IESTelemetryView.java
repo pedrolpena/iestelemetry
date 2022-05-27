@@ -1031,8 +1031,8 @@ public class IESTelemetryView extends FrameView {
         set130kSensitivityjButton.setName("set130kSensitivityjButton"); // NOI18N
 
         transmitPowerJComboBox.setFont(resourceMap.getFont("transmitPowerJComboBox.font")); // NOI18N
-        transmitPowerJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8" }));
-        transmitPowerJComboBox.setSelectedIndex(8);
+        transmitPowerJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
+        transmitPowerJComboBox.setSelectedIndex(7);
         transmitPowerJComboBox.setName("transmitPowerJComboBox"); // NOI18N
 
         setTXPowerjButton.setFont(resourceMap.getFont("setTXPowerjButton.font")); // NOI18N

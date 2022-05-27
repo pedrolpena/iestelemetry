@@ -120,7 +120,7 @@ class ConvertIncommingFreq2Data extends Thread {
 
                 case 0:
                     
-                    if(!pressureMarkerHasElapsed && deckBoxTimeElapsed >= 14.5){
+                    if(!pressureMarkerHasElapsed && deckBoxTimeElapsed >=.25 && deckBoxTimeElapsed >= 14.25){
                         appendData2Display((MSBMarker ? "\nMSB" : "\nLSB"));
                         appendData2Display("Pressure = -99.9999");
                         log("%Pressure\n" + (MSBMarker ? "1 " : "0 ") + freqSequenceCounter + "-99.9999 " + getEpochTimeOfReceivedMarker(),"converted_download_log.txt");
@@ -129,7 +129,7 @@ class ConvertIncommingFreq2Data extends Thread {
                     }//endif                    
                     break;
                 case 1:
-                    if(!tauMarkerHasElapsed && deckBoxTimeElapsed >= 20.75){
+                    if(!tauMarkerHasElapsed && deckBoxTimeElapsed >= 14.5 &&  deckBoxTimeElapsed >= 20.5){
                         appendData2Display("Tau = -99.9999");
                         log("%Tau\n" + (MSBMarker ? "1 " : "0 ") + freqSequenceCounter + "-99.9999 " + getEpochTimeOfReceivedMarker(),"converted_download_log.txt");
                         freqSequenceCounter++;
@@ -137,7 +137,7 @@ class ConvertIncommingFreq2Data extends Thread {
                     }//endif                       
                     break;
                 case 2:
-                    if(!yearDayMarkerHasElapsed && deckBoxTimeElapsed >= 24){
+                    if(!yearDayMarkerHasElapsed && deckBoxTimeElapsed >= 20.75 && deckBoxTimeElapsed >= 22.75){
                         appendData2Display("Year Day = -99.9999");
                         log("%Year-Day\n" + (MSBMarker ? "1 " : "0 ") + freqSequenceCounter + "-99.9999 " + getEpochTimeOfReceivedMarker(),"converted_download_log.txt");
                         freqSequenceCounter++;
@@ -149,7 +149,7 @@ class ConvertIncommingFreq2Data extends Thread {
                     }//endif                     
                     break;
                 case 3:
-                    if(!speedMarkerHasElapsed && deckBoxTimeElapsed >= 26.25){
+                    if(!speedMarkerHasElapsed && deckBoxTimeElapsed >= 23 && deckBoxTimeElapsed >= 26){
                         appendData2Display("Speed = -99.9999");
                         log("%Speed\n" + (MSBMarker ? "1 " : "0 ") + freqSequenceCounter + "-99.9999" + getEpochTimeOfReceivedMarker(),"converted_download_log.txt");
                          freqSequenceCounter++;
@@ -157,7 +157,7 @@ class ConvertIncommingFreq2Data extends Thread {
                     }//endif                     
                     break;  
                 case 4:
-                    if(!headingMarkerHasElapsed && deckBoxTimeElapsed >= 30){
+                    if(!headingMarkerHasElapsed && deckBoxTimeElapsed >= 26.25 && deckBoxTimeElapsed >= 29.25){
                         appendData2Display("Heading = -99.9999");
                         log("%Heading\n" + (MSBMarker ? "1 " : "0 ") + freqSequenceCounter + "-99.9999" + getEpochTimeOfReceivedMarker(),"converted_download_log.txt");
                         headingMarkerHasElapsed = true;

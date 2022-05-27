@@ -593,6 +593,11 @@ public class IESTelemetryView extends FrameView {
         DeckUnitjComboBox.setSelectedItem("UTS");
         DeckUnitjComboBox.setAction(actionMap.get("setDeckBoxType")); // NOI18N
         DeckUnitjComboBox.setName("DeckUnitjComboBox"); // NOI18N
+        DeckUnitjComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                DeckUnitjComboBoxItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1626,6 +1631,21 @@ public class IESTelemetryView extends FrameView {
         txpl.start();
     }//GEN-LAST:event_setTXPowerjButtonMouseReleased
 
+    private void DeckUnitjComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_DeckUnitjComboBoxItemStateChanged
+
+        int maxThreshold = 256;
+
+        if (this.DeckUnitjComboBox.getSelectedItem().toString().equals("UTS")) {
+            maxThreshold = 999;
+        }
+// sets receive threshold values
+        for (int rxt = 10; rxt <= maxThreshold; rxt++) {
+            ReceiveThresholdjComboBox.addItem(rxt);
+        }// end for
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeckUnitjComboBoxItemStateChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DatajPanelTab;
     private javax.swing.JComboBox DeckUnitjComboBox;
@@ -1863,16 +1883,20 @@ private void init(){
     IESParameters[8]=this.Frequency6jComboBox;
     IESParameters[9]=this.DeckUnitjComboBox;
 
-
     this.setGainjComboBox.setSelectedIndex(3);
+
 // sets receive threshold values
-    for(int rxt = 10 ; rxt <= 256 ; rxt++ ){
+    int maxThreshold = 256;
+
+    if (this.DeckUnitjComboBox.getSelectedItem().toString().equals("UTS")) {
+        maxThreshold = 999;
+    }
+    for (int rxt = 10; rxt <= maxThreshold; rxt++) {
         ReceiveThresholdjComboBox.addItem(rxt);
     }// end for
 
-
 // sets receive threshold values
-    for(int URICodes = 0 ; URICodes <= 76 ; URICodes++ ){
+    for (int URICodes = 0; URICodes <= 76 ; URICodes++ ){
         this.transmitCodejComboBox.addItem(URICodes);
     }// end for
     this.transmitCodejComboBox.setSelectedIndex(76);
@@ -2040,6 +2064,7 @@ public void log(String message){
         //this.connectjButton.setEnabled(false);
         this.setPortSettingsEnable(false);
         //log(getPortSpeed()+"");
+        this.setRXThreshold();
     return true;
     }
 /**

@@ -1,0 +1,61 @@
+                     INVERTED ECHO SOUNDER DEPLOYMENT
+
+SITE :_______________  PROJECT:_______________ DATE:_______________(GMT)
+
+             S/N        MODEL               ACS function     URI Command
+
+      IES __________   __________                 TELEM       __________
+
+      DCS __________   __________                BEACON       __________
+
+DCS CABLE __________   __________               RELEASE       __________
+
+ MICROCAT __________   __________                 CLEAR       ____76____
+
+Travel Time Measure Rate:_____________ pings every _____________ minutes
+
+Depth: _____________meters ÷ __________m/min = sink time  = ________min.
+
+              Recovery Devices:                    Attached & Working?
+                                                            (Y/N)
+Internal radio Marine Channel#:_____________                _____
+
+                     Frequency:_____________(Mhz)
+                    PIES stand                              _____
+                          Flag                              _____
+
+IES clock offset from GMT @ launch ____________ seconds (+early / -late)
+
+Attach anchor, suspend & check slippage? _______________________________
+
+Type Of Fix  :_____________________________________
+
+Latitude (DD):_____________________________________  MM.mmmmm°
+
+Longitude(DD):_____________________________________ MMM.mmmmm°
+
+                         Date(GMT)                   Time(GMT)
+
+Launch          ___________________________  ___________________________
+
+Reached bottom  ___________________________  ___________________________
+
+Auto-Release    ___________________________  ___________________________
+
+                              BURST TELEMETRY
+
+Deck Unit Used:____________________Gain/Rx-Threshold:___________________
+
+SAMPLE#        TAU           PRESSURE         SPEED         DIRECTION
+
+   1.     ______________  ______________  ______________  ______________
+
+   2.     ______________  ______________  ______________  ______________
+
+   3.     ______________  ______________  ______________  ______________
+
+   4.     ______________  ______________  ______________  ______________
+
+Sent CLEAR command before leaving site?   ______________
+
+                            ADDITIONAL NOTES:

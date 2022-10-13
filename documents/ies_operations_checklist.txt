@@ -1,0 +1,64 @@
+                   PIES/C-PIES Telemetry checklist
+
+SITE________ URI _________IES SN#________   OPERATION: CTD,    Telemetry
+
+LATITUDE:______________                     LONGITUDE:__________________
+
+DEPTH:____________ TELEMETRY CODE:_______   CLEAR CODE: 76
+                                                                   CHECK
+Approaching station
+ 1. Configure Benthos Deck Unit and Test communication with laptop
+ • Open AOML IES telemetry App. in your laptop                     _____
+
+ • Turn the Benthos Deck Unit to REMOTE mode                       _____
+
+ • Select where to save the data file (ex. C:\...\wbts1602)        _____
+
+ • Select the correct Deck Unit type                               _____
+
+ • Select the correct Serial Port Configuration                    _____
+
+ • Specify the IES type, model, firmware and serial number         _____
+
+ • Select “Connect” to test the communication to Benthos box       _____
+
+ • If you are using DS7000, use gain of __________
+
+On station
+ 2. Turn SeaBeam/Bathy2000-type systems to passive mode            _____
+
+ 3. Communicate with the Bridge and tell them that an
+    over-the-side transducer will be in use (if appropriate)       _____
+
+ 4. Put Benthos transducer over the side (if appropriate)          _____
+
+ 5. In Benthos COMMAND mode, send 12 kHz CLEAR command             _____
+
+ 6. In Benthos COMMAND mode, send 12 kHz TELEM command             _____
+
+ 7. QUICKLY!  Change Benthos box to REMOTE mode                    _____
+
+ 8. Select “Ping” (single ping) in AOML IES Telemetry App.         _____
+
+
+When telemetry download complete (back to___________Yearday__________)
+
+ 9. In Benthos COMMAND mode, send 12 kHz CLEAR command             _____
+
+ 10. Pull Benthos transducer onboard and wash it                   _____
+
+ 11. Tell Bridge transducer is back onboard                        _____
+
+ 12. Back up the files to another computer!!!!                     _____
+
+ 13. Turn SeaBeam/Bathy2010 systems into active mode               _____
+
+Date of telemetry download:_____________________________________________
+
+Time of telemetry download (UTC):_______________________________________
+
+Length of record downloaded:____________________________________________
+
+Directory where files copied:___________________________________________
+
+Filename of data file:__________________________________________________

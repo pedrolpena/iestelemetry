@@ -1,0 +1,56 @@
+                     PIES/C-PIES Telemetry Log-sheet
+
+Project name:___________________           Site name:___________________
+
+Instrument type:________________            Operator:___________________
+
+TELEM command:__________________  Telem program name:___________________
+
+Site depth (m):_________________  Expected tau (depth/750):_____________
+
+Telemetry date (GMT):_________________   Telemetry Yearday:_____________
+
+Deployment date (GMT):________________  Deployment Yearday:_____________
+
+
+CTD Station #:_______________Deck Unit Type:___________S/N:_____________
+
+Arrival hour/minute at site (GMT):______________________________________
+
+At start of telemetry –  Latitude:______________________________________
+
+At start of telemetry – Longitude:______________________________________
+
+CLEAR  command sent at time (GMT):______________________________________
+
+Two ping reply received (y/n)?___________________
+
+TELEM command sent at time (GMT) :______________________________________
+
+First data received (GMT):______________________________________________
+
+Clear command sent to end telemetry before end of record (y/n)?_________
+
+Reason:
+
+
+
+
+
+
+Second TELEM command sent (y/n)?___________________
+
+Second TELEM command sent at time (GMT):________________________________
+
+First data received (GMT):______________________________________________
+
+Last data received (GMT):_______________________________________________
+
+Final Yearday received:_________________________________________________
+
+At end of telemetry –  Latitude:________________________________________ 
+
+At end of telemetry – Longitude:________________________________________
+
+
+                           Additional notes:

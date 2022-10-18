@@ -3,7 +3,7 @@
 JC             = javac
 JRT            = java
 JAR            = jar
-JCFLAGS        = -source 1.6 -target 1.6 -d ./
+JCFLAGS        = -d ./
 ###############Paths####################################################
 DESTDIR        =
 DESTDIR_B4     = $(DESTDIR)/..
@@ -18,8 +18,9 @@ PREFIXI        = $(PREFIX)
 STARTDIRI      = $(STARTDIR)
 ICONDIRI       = $(ICONDIR)
 ##############Program specific info.####################################
-CP             = .:/usr/share/java/bsaf.jar:/usr/share/java/RXTXcomm.jar
 JPACKAGE       = iestelemetry
+CP             = ./lib/bsaf.jar:./lib/rxtx-api-2.2-stabilize-SNAPSHOT.jar:./lib/rxtxSerial-2.2-stabilize-SNAPSHOT.jar:./lib/swing-worker-1.1.jar
+CPI             = $(PREFIXI)/$(JPACKAGE)/lib/bsaf.jar:$(PREFIXI)/$(JPACKAGE)/lib/rxtx-api-2.2-stabilize-SNAPSHOT.jar:$(PREFIXI)/$(JPACKAGE)/lib/rxtxSerial-2.2-stabilize-SNAPSHOT.jar:$(PREFIXI)/$(JPACKAGE)/lib/swing-worker-1.1.jar
 MAIN           = IESTelemetryApp
 SOURCEDIR      = src/$(JPACKAGE)
 FILENAME       = IESTelemetry.jar
@@ -28,6 +29,7 @@ SOURCEFILES    = $(SOURCEDIR)/ClearUDB9000DataLogger.java \
                  $(SOURCEDIR)/configureDeckBox.java \
 	             $(SOURCEDIR)/configureDeckBox_UDB9000_DS7000_Mode.java \
 	             $(SOURCEDIR)/configureDeckBox_UDB9000.java \
+                     $(SOURCEDIR)/configureDeckBox_UTS.java \
 	             $(SOURCEDIR)/ConvertIncommingFreq2Data.java \
 	             $(SOURCEDIR)/DeckBox.java \
 	             $(SOURCEDIR)/FileChooserJFrame.java \
@@ -39,7 +41,8 @@ SOURCEFILES    = $(SOURCEDIR)/ClearUDB9000DataLogger.java \
 	             $(SOURCEDIR)/SendSinglePing.java \
 	             $(SOURCEDIR)/SendURICommand.java \
 	             $(SOURCEDIR)/SetChannelReceiveSensitivity.java \
-	             $(SOURCEDIR)/SetRXThreshold.java
+	             $(SOURCEDIR)/SetRXThreshold.java \
+                     $(SOURCEDIR)/SetTXPowerLevel.java
 ##############Desktop file fields#######################################
 TITLE          = "IES Telemetry Application"
 COMMENT        = "IES Telemetry Application"
@@ -104,10 +107,11 @@ install:
 	mkdir -p $(DESKTOPDIR)
 	mkdir -p $(MANDIR)
 	
-	cp dist/$(FILENAME) $(PREFIX)/$(JPACKAGE)
+	cp -R ./dist/* $(PREFIX)/$(JPACKAGE)
+	cp -R ./lib $(PREFIX)/$(JPACKAGE)
 	chmod +x $(PREFIX)/$(JPACKAGE)/$(FILENAME)
 	echo "#!/bin/bash" > $(STARTDIR)/$(JPACKAGE)
-	echo "java -cp $(CP):$(PREFIXI)/$(JPACKAGE)/$(FILENAME) $(JPACKAGE).$(MAIN)" >> $(STARTDIR)/$(JPACKAGE)
+	echo "java -cp $(CPI):$(PREFIXI)/$(JPACKAGE)/$(FILENAME) $(JPACKAGE).$(MAIN)" >> $(STARTDIR)/$(JPACKAGE)
 	chmod +x $(STARTDIR)/$(JPACKAGE)
 	cp icon.png $(ICONDIR)
 	cp copyright $(ICONDIR)
@@ -139,10 +143,9 @@ endif
 	
 uninstall:
 	$(RM) $(STARTDIR)/$(JPACKAGE)
-	$(RM) $(PREFIX)/$(JPACKAGE)/$(FILENAME)
+	$(RM) -rf $(PREFIX)/$(JPACKAGE)
 	$(RM) $(ICONDIR)/*
 	rmdir $(ICONDIR)
-	rmdir $(PREFIX)/$(JPACKAGE)
 	
 deb:
 	mkdir -p $(DESTDIR)/usr/lib

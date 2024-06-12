@@ -99,20 +99,11 @@ makeit.bat
 ```
 Under linux/Mac OSX
 ```bash
-chmod +x makeit.sh
-./makeit.sh
+make
+sudo make install
 ```
-When done compiling, the ftp program will be placed in the dist directory.
+When done compiling, the telemetry program will be placed in the dist directory.
 
-
---------------------------------------
-**INSTALLING THE RXTX SERIAL LIBRARY**
---------------------------------------
-RXTX is a Java library, using a native implementation (via JNI), providing 
-serial and parallel communication for the Java Development Toolkit (JDK). 
-http://rxtx.qbang.org/
-Without this library, the program will not be able to communicate with
-the serial port. RXTX is included in this propgram as a universal jar.
 
 
 ----------------------------
@@ -192,48 +183,6 @@ groups<br>
 the dialout and lock groups should be in the list.<br>
 
 
-
--------------
-**UNDER OSX**
--------------
-
-Access to the serial port is a little more complicated under OSX as it changes across
-several different versions. The user needs to be part of the uucp group
-
-These instructions worked under OSX Leopard 10.5<br>
-```bash
-sudo mkdir /var/lock 
-sudo chmod 775 /var/lock
-sudo dscl . -append /groups/_uucp GroupMembership aardvark
-```
-(replace aardvark with the username)
-
-
-These instructions worked under a later version of OSX<br>
-```bash
-sudo mkdir /var/lock 
-sudo chmod 777 /var/lock
-sudo dseditgroup -o edit -a aardvark -t user uucp
-```
-(replace aardvark with the username
-
-Reboot the computer<br>
-
-rxtx uses the /var/lock directory to create lock files for a serial port when in use.
-This prevents other programs from trying to use the serial port when in use.
-You will likely have trouble at this point. If you have trouble and you figure it out,
-please include what you did in this document.
-
-peruse "http://rxtx.qbang.org/wiki/index.php/Trouble_shooting#Mac_OS_X_users" for hints.
-
-If you can't figure it out, you can run the program as the super user by preceding the command
-by "sudo"
-```bash
-sudo java -jar IESTelemetry.jar
-```
-This will work but all the files created by the program will belong to root and you will
-have to change the permissions of the created files to access them.
-
 -----------------------
 **RUNNING THE PROGRAM**
 -----------------------
@@ -279,19 +228,4 @@ Once installed restart the IDE<br>
 
 
 This plugin works with the Netbeans 8.2<br>
-
------------------------------------------------------------------------------
-**java.lang.NullPointerException thrown while loading gnu.io.RXTXCommDriver**
------------------------------------------------------------------------------
-
-On newer versions of java sometimes an exception is thrown and no serial ports are listed.
-```
-java.lang.NullPointerException thrown while loading gnu.io.RXTXCommDriver
-```
-
-You can start the program with 
-
-```
-java -Djava.ext.dirs -jar IESTelemetry.jar
-```
 

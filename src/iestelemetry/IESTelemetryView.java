@@ -1803,7 +1803,7 @@ public class IESTelemetryView extends FrameView {
  */
    private CommPortIdentifier getPort(String port){
     // Javacomm fields
-        DriverManager.getInstance().loadDrivers();
+//        DriverManager.getInstance().loadDrivers();
         Enumeration portIdentifiers = CommPortIdentifier.getPortIdentifiers();
         CommPortIdentifier pid = null;
         while(portIdentifiers.hasMoreElements()){
@@ -1821,7 +1821,7 @@ public class IESTelemetryView extends FrameView {
     * populates the ComboBox with the available ports on the system
     */
    private void populatePortComboBox(){
-       DriverManager.getInstance().loadDrivers();
+//       DriverManager.getInstance().loadDrivers();
         Enumeration portIdentifiers = CommPortIdentifier.getPortIdentifiers();
         CommPortIdentifier pid = null;
 

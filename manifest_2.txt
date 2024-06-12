@@ -1,3 +1,3 @@
-Class-Path: bsaf.jar lib/rxtx-api-2.2-stabilize-SNAPSHOT.jar lib/rxtxSerial-2.2-stabilize-SNAPSHOT.jar
+Class-Path: lib/bsaf.jar lib/nrjavaserial.jar /lib/swing-worker-1.1.jar
 Main-Class: iestelemetry.IESTelemetryApp
 

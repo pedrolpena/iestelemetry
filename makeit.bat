@@ -1,6 +1,6 @@
 echo off
 
-javac -d .\ -cp .\lib\bsaf.jar;.\lib\rxtx-api-2.2-stabilize-SNAPSHOT.jar;.\lib\rxtxSerial-2.2-stabilize-SNAPSHOT.jar;.\lib\swing-worker-1.1.jar src\iestelemetry\*.java
+javac -d .\ -cp .\lib\bsaf.jar;.\lib\nrjavaserial.jar;.\lib\swing-worker-1.1.jar src\iestelemetry\*.java
 mkdir iestelemetry\resources
 xcopy src\iestelemetry\resources iestelemetry\resources /E/Y
 copy manifest_1.txt manifest.txt

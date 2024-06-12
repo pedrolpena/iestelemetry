@@ -19,8 +19,8 @@ STARTDIRI      = $(STARTDIR)
 ICONDIRI       = $(ICONDIR)
 ##############Program specific info.####################################
 JPACKAGE       = iestelemetry
-CP             = ./lib/bsaf.jar:./lib/rxtx-api-2.2-stabilize-SNAPSHOT.jar:./lib/rxtxSerial-2.2-stabilize-SNAPSHOT.jar:./lib/swing-worker-1.1.jar
-CPI             = $(PREFIXI)/$(JPACKAGE)/lib/bsaf.jar:$(PREFIXI)/$(JPACKAGE)/lib/rxtx-api-2.2-stabilize-SNAPSHOT.jar:$(PREFIXI)/$(JPACKAGE)/lib/rxtxSerial-2.2-stabilize-SNAPSHOT.jar:$(PREFIXI)/$(JPACKAGE)/lib/swing-worker-1.1.jar
+CP             = ./lib/bsaf.jar:./lib/swing-worker-1.1.jar:./lib/nrjavaserial.jar
+CPI             = $(PREFIXI)/$(JPACKAGE)/lib/bsaf.jar:$(PREFIXI)/$(JPACKAGE)/lib/nrjavaserial.jar:$(PREFIXI)/$(JPACKAGE)/lib/swing-worker-1.1.jar
 MAIN           = IESTelemetryApp
 SOURCEDIR      = src/$(JPACKAGE)
 FILENAME       = IESTelemetry.jar
@@ -70,9 +70,9 @@ MAKEDEB        = 0
 
 
 
-all: build copyres archive dist desktop
+all: buildit copyres archive dist desktop
 
-build:
+buildit:
 	$(JC) $(JCFLAGS) -cp $(CP) $(JDP) $(SOURCEFILES)
 
 copyres:
@@ -119,27 +119,6 @@ install:
 	cp $(JPACKAGE).desktop $(DESKTOPDIR)
 	gzip -9 --no-name -c changelog > $(ICONDIR)/changelog.gz
 	gzip -9 --no-name -c $(JPACKAGE).7 > $(MANDIR)/$(JPACKAGE).7.gz
-
-ifeq ($(MAKEDEB),1)
-	mkdir -p $(DESTDIR)/DEBIAN
-	echo "#!/bin/bash" > $(DESTDIR)/DEBIAN/postinst
-	echo "set -e" >> $(DESTDIR)/DEBIAN/postinst
-	
-	echo 'LIBPATH="/usr/lib/jni"' >> $(DESTDIR)/DEBIAN/postinst
-	echo 'LIB="librxtxSerial.so"' >> $(DESTDIR)/DEBIAN/postinst
-	
-	echo 'if ! [ -f "/lib/$$LIB"  ] && [ "$$LIBPATH"/"$$LIB" ]; then' >> $(DESTDIR)/DEBIAN/postinst
-	echo '    ln -s "$$LIBPATH"/"$$LIB" /lib/$$LIB'>> $(DESTDIR)/DEBIAN/postinst
-	echo "fi" >> $(DESTDIR)/DEBIAN/postinst
-
-	chmod +x $(DESTDIR)/DEBIAN/postinst
-else
-
-	if [ -f "/usr/lib/jni/librxtxSerial.so" ] && [ ! -f "/lib/librxtxSerial.so" ];then \
-	ln -s /usr/lib/jni/librxtxSerial.so /lib/librxtxSerial.so;fi
-	usermod -a -G dialout $(SUDO_USER)
-	
-endif
 	
 uninstall:
 	$(RM) $(STARTDIR)/$(JPACKAGE)

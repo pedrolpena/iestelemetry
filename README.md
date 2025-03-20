@@ -227,5 +227,5 @@ Click on "Istall"<br>
 Once installed restart the IDE<br>
 
 
-This plugin works with the Netbeans 8.2<br>
+This plugin works with Apache NetBeans IDE 25 and possibly older ones<br>
 

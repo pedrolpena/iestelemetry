@@ -216,7 +216,7 @@ The filename is "1341985500_org-netbeans-modules-swingapp.nbm"<br>
 
 The plugin can be downoaded from the following location.<br>
 
-http://plugins.netbeans.org/plugin/43853/swing-application-framework-support<br>
+[Swing Application Framework Support for Form Editor](https://web.archive.org/web/20210117201601/http://plugins.netbeans.org/download/plugin/2286)<br>
 
 To install the plugin<br>
 Click on "Tools"-->"plugins"<br>
